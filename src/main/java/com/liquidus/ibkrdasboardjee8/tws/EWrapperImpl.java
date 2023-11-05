@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 @Named
 @RequestScoped
 public class EWrapperImpl implements EWrapper, Serializable {
+    // TODO: Test on Monday open whether you need this HashMap. List could be enough
     private final Map<Integer, Position> positionsPnLMap = new HashMap<>();
     private final EReaderSignal readerSignal;
     private final EClientSocket clientSocket;
@@ -59,10 +60,7 @@ public class EWrapperImpl implements EWrapper, Serializable {
     //! [tickprice]
     @Override
     public void tickPrice(int tickerId, int field, double price, TickAttrib attribs) {
-        if (field == TickType.DELAYED_LAST.ordinal()) {
-            this.currMarketPrice = price;
-            System.out.println("Tick Price: " + EWrapperMsgGenerator.tickPrice(tickerId, field, price, attribs));
-        }
+        System.out.println("Tick Price: " + EWrapperMsgGenerator.tickPrice(tickerId, field, price, attribs));
     }
     //! [tickprice]
 
@@ -124,53 +122,47 @@ public class EWrapperImpl implements EWrapper, Serializable {
         System.out.println("Open Order End: " + EWrapperMsgGenerator.openOrderEnd());
     }
 
-    // TODO: figure out a way to calculate position's PnL right
     @Override
     public void updateAccountValue(String key, String value, String currency, String accountName) {
+        // TODO: Test on Monday open how it calculates RealizedPnL
         if (key.equals("RealizedPnL")) {
             this.portfolioRealizedPnL = Double.parseDouble(value);
-
-            for (Position p : positionsPnLMap.values()) {
-                if (portfolioRealizedPnL == 0) {
-                    p.setRealizedPnL(0);
-                } else {
-//                double positionPortion = p.getPosition().value().doubleValue() / getTotalPositionSize();
-//                positionRealizedPnL = this.portfolioRealizedPnL * positionPortion;
-
-                    System.out.println("Last market price for: " + p.getTicker() + " is " + this.currMarketPrice);
-
-                    positionRealizedPnL = (this.currMarketPrice - p.getAverageCost()) * p.getPosition();
-
-                    p.setRealizedPnL(positionRealizedPnL);
-                    System.out.println("RealizedPnL for the position: " + p.getTicker() + " is " + positionUnrealizedPnL);
-                }
-            }
+            calculatePnLHelper(portfolioRealizedPnL, "RealizedPnL");
         } else if (key.equals("UnrealizedPnL")) {
             this.portfolioUnrealizedPnL = Double.parseDouble(value);
-
-            for (Position p : positionsPnLMap.values()) {
-                // calculate position's portion from the total portfolio size
-//                double positionPortion = p.getPosition().value().doubleValue() / getTotalPositionSize();
-                // calculate position's unrealized pnl
-//                positionUnrealizedPnL = this.portfolioUnrealizedPnL * positionPortion;
-                positionUnrealizedPnL = (this.currMarketPrice - p.getAverageCost()) * p.getPosition();
-
-                p.setUnrealizedPnL(positionUnrealizedPnL);
-                System.out.println("UnrealizedPnL for the position: " + p.getTicker() + " is " + positionUnrealizedPnL);
-            }
+            calculatePnLHelper(portfolioUnrealizedPnL, "UnrealizedPnL");
         }
-//        System.out.println(EWrapperMsgGenerator.updateAccountValue(key, value, currency, accountName));
     }
 
     /**
-     * Util method that calculates the calculates total size of the positions contracts in the portfolio
+     * <p>Calculates <b>Daily</b> Unrealized or Realized PnL for the portfolio</p>
+     *
+     * @param portfolioPnL RealizedPnL or UnrealizedPnL portfolio PnL value that we get from {@link EWrapper#updateAccountValue(String, String, String, String)}
+     * @param pnlType      RealizedPnL or UnrealizedPnL. Added for pretty logging in the console and 0 check logic for RealizedPnL
      */
-    private double getTotalPositionSize() {
-        double total = 0;
+    private void calculatePnLHelper(double portfolioPnL, String pnlType) {
+        RapidAPIGetMktPrice rapidAPIApp = new RapidAPIGetMktPrice();
+
         for (Position p : positionsPnLMap.values()) {
-            total += Math.abs(p.getPosition());
+
+            if (portfolioPnL == 0 && pnlType.equals("RealizedPnL")) {
+                p.setRealizedPnL(0);
+            } else if (portfolioPnL != 0) {
+                // get current market price via Rapid API
+                this.currMarketPrice = rapidAPIApp.getMarketPrice(p.getTicker());
+                logger.info("[" + pnlType + "] Last market price for: " + p.getTicker() + " is " + this.currMarketPrice);
+
+                // Calculate position PnL
+                double positionPnL = Math.abs(this.currMarketPrice - p.getAverageCost()) * p.getPosition();
+
+                if (pnlType.equals("RealizedPnL")) {
+                    p.setRealizedPnL(positionPnL);
+                } else {
+                    p.setUnrealizedPnL(positionPnL);
+                }
+                logger.info(pnlType + " for the position: " + p.getTicker() + " is " + positionPnL);
+            }
         }
-        return total;
     }
     //! [updateaccountvalue]
 
