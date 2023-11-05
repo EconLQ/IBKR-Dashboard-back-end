@@ -4,25 +4,23 @@ import com.ib.client.Contract;
 import com.ib.client.Decimal;
 import com.liquidus.ibkrdasboardjee8.entity.Position;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.validation.ConstraintViolationException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * PositionDao has a local view as it directly implements an interface which has {@link javax.ejb.Local} annotation
+ */
 @Singleton
-@LocalBean
 public class PositionDao implements PositionLocal {
     private Logger logger = Logger.getLogger(PositionDao.class.getName());
 
     @PersistenceContext
     private EntityManager entityManager;
-
-    private List<Position> positions = new ArrayList<>();
 
 
     public PositionDao() {
@@ -51,20 +49,7 @@ public class PositionDao implements PositionLocal {
             return;
         }
 
-        // check if the position exists in the table
-        Position managedPosition = entityManager
-                .createQuery("SELECT p from Position p where p.contractId = :contractId", Position.class)
-                .setParameter("contractId", position.getContractId())
-                .getSingleResult();
-
-        if (managedPosition != null) {
-            logger.info("Position with such ID: " + position.getContractId() + " already exists");
-            // Update existing position
-            managedPosition.setPosition(position.getPosition());
-            managedPosition.setUnrealizedPnL(position.getUnrealizedPnL());
-            managedPosition.setRealizedPnL(position.getRealizedPnL());
-            entityManager.merge(managedPosition);
-        } else {
+        if (!updatePosition(position)) {
             try {
                 logger.info("Adding position: " + position.getTicker() + " with contract ID: " + position.getContractId());
                 // persist (add) unique position to the table
@@ -97,11 +82,28 @@ public class PositionDao implements PositionLocal {
     }
 
     @Override
-    public void updatePosition(Position position) {
+    public boolean updatePosition(Position position) {
         if (position == null) {
             logger.warning("Passed position is null");
-            return;
+            return false;
         }
-        List<Position> positions = getAllPositions();
+        // check if the position exists in the table
+        Position managedPosition = entityManager
+                .createQuery("SELECT p from Position p where p.contractId = :contractId", Position.class)
+                .setParameter("contractId", position.getContractId())
+                .getSingleResult();
+
+        if (managedPosition != null) {
+            // Update existing position
+            logger.info("This position already exists. Updating position with ID: " + position.getContractId());
+            managedPosition.setPosition(position.getPosition());
+            managedPosition.setUnrealizedPnL(position.getUnrealizedPnL());
+            managedPosition.setRealizedPnL(position.getRealizedPnL());
+            managedPosition.setLastMarketPrice(position.getLastMarketPrice());
+            entityManager.merge(managedPosition);
+        } else {
+            return false;
+        }
+        return true;
     }
 }

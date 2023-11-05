@@ -19,5 +19,5 @@ public interface PositionLocal extends Serializable {
 
     void deletePosition(Position position);
 
-    void updatePosition(Position position);
+    boolean updatePosition(Position position);
 }
