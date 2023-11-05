@@ -93,6 +93,11 @@
             <artifactId>tws-api</artifactId>
             <version>9.73.01-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
