@@ -3,11 +3,10 @@ package com.liquidus.ibkrdasboardjee8.tws;
 import com.ib.client.EClientSocket;
 import com.ib.client.EReader;
 import com.ib.client.EReaderSignal;
-import com.liquidus.ibkrdasboardjee8.dao.PositionDao;
 import com.liquidus.ibkrdasboardjee8.dao.PositionLocal;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.spi.CDI;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -18,8 +17,8 @@ public class OrderDataRetrieval {
     private static final String ACCOUNT_CODE = "DU6742034";
     private static Logger logger = Logger.getLogger(OrderDataRetrieval.class.getName());
 
-    // TODO: investigate why it fails with @Inject
-    PositionLocal positionBean = CDI.current().select(PositionDao.class).get();
+    @Inject
+    PositionLocal positionBean;
 
     public OrderDataRetrieval() {
     }
@@ -51,7 +50,7 @@ public class OrderDataRetrieval {
                 try {
                     reader.processMsgs();
                 } catch (IOException e) {
-                    System.out.println("Exception: " + e.getMessage());
+                    logger.warning("Failed processing messages from EReader: " + e.getMessage());
                 }
             }
         }).start();
@@ -72,9 +71,10 @@ public class OrderDataRetrieval {
         // add positions to Position table
         wrapper.getPositions().forEach(position -> positionBean.addPosition(position));
 
-        System.out.println("Get a list of all positions from the table Position: ");
+        logger.info("Get a list of all positions from the table Position: ");
         positionBean.getAllPositions().forEach(System.out::println);
 
+//        wrapper.getPositionsSet().forEach(position -> logger.info("Positions Set: " + position));
         Thread.sleep(1000);  // sleep for 1s before disconnecting
         clientSocket.eDisconnect();
     }
