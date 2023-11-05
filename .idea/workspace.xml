@@ -9,15 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Change logic inside updateAccountValue method to get stock's market price from Rapid API">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/positions.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/positions.css" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added JSP to visualize the Positions table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionLocal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/positions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/positions.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +181,7 @@
       <workItem from="1699041697736" duration="7126000" />
       <workItem from="1699085499516" duration="8956000" />
       <workItem from="1699121362830" duration="12803000" />
-      <workItem from="1699171824464" duration="10953000" />
+      <workItem from="1699171824464" duration="15559000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -208,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699172063841</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added JSP to visualize the Positions table">
+      <option name="closed" value="true" />
+      <created>1699198211019</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699198211019</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +236,8 @@
     <MESSAGE value="Maven configuration (specified maven-compiler-plugin and set to 11)" />
     <MESSAGE value="Responsible for getting stock's current market price via RapidAPI" />
     <MESSAGE value="Change logic inside updateAccountValue method to get stock's market price from Rapid API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change logic inside updateAccountValue method to get stock's market price from Rapid API" />
+    <MESSAGE value="Added JSP to visualize the Positions table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JSP to visualize the Positions table" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

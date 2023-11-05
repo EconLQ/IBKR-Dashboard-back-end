@@ -6,7 +6,7 @@
     <link rel=“stylesheet” type=“text/css” href="${pageContext.request.contextPath}/static/css/positions.css">
     <style>
         table, th, td {
-            width: 60%;
+            width: -webkit-fill-available;
             text-align: center;
             margin: auto;
             border: 1px solid white;
@@ -16,7 +16,7 @@
 </head>
 <body style="background-color: black; color: white">
 <h2>All positions in the current portfolio</h2>
-<p><i>*Note:</i>>If you refresh the page it'll start the update process of fetching positions from the TWS</p>
+<p><i>*Note:</i>If you refresh the page it'll fetch new (if any) positions from the TWS. It may take up to 10s</p>
 <table class="positions-table">
     <thead>
     <tr>
