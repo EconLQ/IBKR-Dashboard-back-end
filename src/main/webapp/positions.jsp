@@ -37,7 +37,7 @@
             <td><c:out value="${position.contractId}"/></td>
             <td><c:out value="${position.ticker}"/></td>
             <td><c:out value="${position.date}"/></td>
-            <td><c:out value="${position.averageCost}"/></td>
+            <td><c:out value="${position.position}"/></td>
             <td><c:out value="${position.unrealizedPnL}"/></td>
             <td><c:out value="${position.realizedPnL}"/></td>
             <td><c:out value="${position.averageCost}"/></td>
