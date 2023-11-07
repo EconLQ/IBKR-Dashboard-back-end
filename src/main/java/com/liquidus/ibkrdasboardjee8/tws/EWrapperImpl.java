@@ -165,7 +165,6 @@ public class EWrapperImpl implements EWrapper, Serializable {
     @Override
     public void updatePortfolio(Contract contract, Decimal position, double marketPrice, double marketValue, double averageCost,
                                 double unrealizedPNL, double realizedPNL, String accountName) {
-        // TODO: check the UnrealizedPnL for SPY on Monday open and if necessary create a position here
         Position newPosition = new Position(
                 contract.conid(),
                 LocalDateTime.now(),
