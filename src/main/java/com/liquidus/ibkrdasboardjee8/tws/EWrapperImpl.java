@@ -27,7 +27,6 @@ public class EWrapperImpl implements EWrapper, Serializable {
     // ![portfolio] PnL
     private double portfolioUnrealizedPnL;
     private double portfolioRealizedPnL;
-
     // position's current market price
     private double currMarketPrice;
 
@@ -119,18 +118,10 @@ public class EWrapperImpl implements EWrapper, Serializable {
 
     @Override
     public void updateAccountValue(String key, String value, String currency, String accountName) {
-        // TODO: Test on Monday open how it calculates RealizedPnL
         if (key.equals("RealizedPnL")) {
-            // check to avoid duplicate rows values with this key
-            if (this.portfolioRealizedPnL != Double.parseDouble(value)) {
-                this.portfolioRealizedPnL = Double.parseDouble(value);
-                calculatePnLHelper(portfolioRealizedPnL, "RealizedPnL");
-            }
+            this.portfolioRealizedPnL = Double.parseDouble(value);
         } else if (key.equals("UnrealizedPnL")) {
-            if (this.portfolioUnrealizedPnL != Double.parseDouble(value)) {
-                this.portfolioUnrealizedPnL = Double.parseDouble(value);
-                calculatePnLHelper(portfolioUnrealizedPnL, "UnrealizedPnL");
-            }
+            this.portfolioUnrealizedPnL = Double.parseDouble(value);
         }
     }
 
@@ -175,7 +166,18 @@ public class EWrapperImpl implements EWrapper, Serializable {
     public void updatePortfolio(Contract contract, Decimal position, double marketPrice, double marketValue, double averageCost,
                                 double unrealizedPNL, double realizedPNL, String accountName) {
         // TODO: check the UnrealizedPnL for SPY on Monday open and if necessary create a position here
-        logger.info(EWrapperMsgGenerator.updatePortfolio(contract, position, marketPrice, marketValue, averageCost, unrealizedPNL, realizedPNL, accountName));
+        Position newPosition = new Position(
+                contract.conid(),
+                LocalDateTime.now(),
+                contract.symbol(),
+                position.value().doubleValue(),
+                unrealizedPNL,
+                realizedPNL,
+                averageCost,
+                marketPrice);
+
+//         save positions to the list of EwrapperImpl instance
+        positions.add(newPosition);
     }
 
 
@@ -334,24 +336,12 @@ public class EWrapperImpl implements EWrapper, Serializable {
 
     @Override
     public void position(String account, Contract contract, Decimal pos, double avgCost) {
-        // unrealized, realized PnL and lastMarketPrice will be recalculated in the updateAccountValue
-        Position position = new Position(
-                contract.conid(),
-                LocalDateTime.now(),
-                contract.symbol(),
-                pos.value().doubleValue(),
-                0,
-                0,
-                avgCost,
-                0);
-
-//         save positions to the list of EwrapperImpl instance
-        positions.add(position);
+//        logger.info(EWrapperMsgGenerator.position(account, contract, pos, avgCost));
     }
 
     @Override
     public void positionEnd() {
-        logger.info("Position End: " + EWrapperMsgGenerator.positionEnd());
+//        logger.info("Position End: " + EWrapperMsgGenerator.positionEnd());
     }
 
 
