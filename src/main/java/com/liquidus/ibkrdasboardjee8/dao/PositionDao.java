@@ -6,6 +6,7 @@ import com.liquidus.ibkrdasboardjee8.entity.Position;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.validation.ConstraintViolationException;
@@ -62,7 +63,14 @@ public class PositionDao implements PositionLocal {
 
     @Override
     public Position findPositionById(int positionId) {
-        return this.entityManager.find(Position.class, positionId);
+        try {
+            return this.entityManager
+                    .createQuery("select p from Position p where p.contractId =:contractId", Position.class)
+                    .setParameter("contractId", positionId).getSingleResult();
+        } catch (NoResultException e) {
+            logger.warning("No entity with contractId as: " + positionId + " found for query");
+            return null;
+        }
     }
 
     @Override
@@ -88,22 +96,25 @@ public class PositionDao implements PositionLocal {
             return false;
         }
         // check if the position exists in the table
-        Position managedPosition = entityManager
-                .createQuery("SELECT p from Position p where p.contractId = :contractId", Position.class)
-                .setParameter("contractId", position.getContractId())
-                .getSingleResult();
-
-        if (managedPosition != null) {
-            // Update existing position
-            logger.info("This position already exists. Updating position with ID: " + position.getContractId());
-            managedPosition.setPosition(position.getPosition());
-            managedPosition.setUnrealizedPnL(position.getUnrealizedPnL());
-            managedPosition.setRealizedPnL(position.getRealizedPnL());
-            managedPosition.setLastMarketPrice(position.getLastMarketPrice());
-            entityManager.merge(managedPosition);
-        } else {
+        Position managedPosition;
+        try {
+            managedPosition = entityManager
+                    .createQuery("SELECT p from Position p where p.contractId = :contractId", Position.class)
+                    .setParameter("contractId", position.getContractId())
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            logger.info("Position with contractId: " + position.getContractId() + " hasn't been found");
             return false;
         }
+
+        // Update existing position
+        logger.info("Position exists. Updating: " + position.getTicker() + " with contractId: " + position.getContractId());
+        managedPosition.setPosition(position.getPosition());
+        managedPosition.setUnrealizedPnL(position.getUnrealizedPnL());
+        managedPosition.setRealizedPnL(position.getRealizedPnL());
+        managedPosition.setLastMarketPrice(position.getLastMarketPrice());
+        entityManager.merge(managedPosition);
+
         return true;
     }
 }
