@@ -1,13 +1,17 @@
 package com.liquidus.ibkrdasboardjee8.entity;
 
 
-import javax.enterprise.inject.Default;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.liquidus.ibkrdasboardjee8.entity.deserializer.LocalDateTimeDeserializer;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Position")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Position {
 
     @Id
@@ -21,7 +25,7 @@ public class Position {
 
 
     @NotNull
-    @Default()
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "LOCAL_DATE")
     private LocalDateTime date;
 
