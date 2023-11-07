@@ -46,5 +46,27 @@
     </c:forEach>
     </tbody>
 </table>
+<p>
+    Portfolio Daily Unrealized PnL:
+    <c:choose>
+        <c:when test="${portfolioUnrealizedPnL >= 0}">
+            <span style="color: green"><b><c:out value="${portfolioUnrealizedPnL}"/></b></span>
+        </c:when>
+        <c:when test="${portfolioUnrealizedPnL < 0}">
+            <span style="color: red"><b><c:out value="${portfolioUnrealizedPnL}"/></b></span>
+        </c:when>
+    </c:choose>
+</p>
+<p>
+    Portfolio Daily Realized PnL :
+    <c:choose>
+        <c:when test="${portfolioRealizedPnL >= 0}">
+            <span style="color: green"><b><c:out value="${portfolioRealizedPnL}"/></b></span>
+        </c:when>
+        <c:when test="${portfolioRealizedPnL < 0}">
+            <span style="color: red"><b><c:out value="${portfolioRealizedPnL}"/></b></span>
+        </c:when>
+    </c:choose>
+</p>
 </body>
 </html>
