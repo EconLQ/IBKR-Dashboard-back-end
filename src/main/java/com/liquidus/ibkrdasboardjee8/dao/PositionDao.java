@@ -68,7 +68,7 @@ public class PositionDao implements PositionLocal {
                     .createQuery("select p from Position p where p.contractId =:contractId", Position.class)
                     .setParameter("contractId", positionId).getSingleResult();
         } catch (NoResultException e) {
-            logger.warning("No entity with contractId as: " + positionId + " found for query");
+            logger.warning("No entity with contractId as [" + positionId + "] was found for query");
             return null;
         }
     }

@@ -9,7 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added tws logo to the main page" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Removed solved TODO">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpointTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpoint.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,13 +33,14 @@
         <option value="Jsp File" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="creating-endpoints" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +69,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "testing-rest",
     "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -72,7 +81,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.37176725",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -85,11 +94,17 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.liquidus.ibkrdasboardjee8.rest" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.liquidus.ibkrdasboardjee8.tws" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final">
     <configuration name="JBoss/WildFly 16.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 16.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/IBKR-Dashboard-JEE8-1.0-SNAPSHOT" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -164,6 +179,31 @@
         </option>
       </method>
     </configuration>
+    <configuration name="PositionEndpointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.PositionEndpointTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final" />
+      <item itemvalue="JUnit.PositionEndpointTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PositionEndpointTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -187,6 +227,9 @@
       <workItem from="1699171824464" duration="15559000" />
       <workItem from="1699368828589" duration="11385000" />
       <workItem from="1699390647312" duration="3193000" />
+      <workItem from="1699455908986" duration="1229000" />
+      <workItem from="1699467844286" duration="6848000" />
+      <workItem from="1699552445879" duration="9645000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -236,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699287968299</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Removed solved TODO">
+      <option name="closed" value="true" />
+      <created>1699395128934</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699395128934</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +311,8 @@
     <MESSAGE value="Added JSP to visualize the Positions table" />
     <MESSAGE value="Fixed representation of the position size inside the table" />
     <MESSAGE value="Added tws logo to the main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tws logo to the main page" />
+    <MESSAGE value="Removed solved TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed solved TODO" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -270,7 +322,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java</url>
-          <line>339</line>
+          <line>338</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
