@@ -6,9 +6,7 @@ import com.liquidus.ibkrdasboardjee8.entity.Position;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -21,8 +19,6 @@ import java.util.logging.Logger;
 @Produces("application/json")
 @Consumes("application/json")
 public class PositionEndpoint {
-    @PersistenceContext
-    EntityManager entityManager;
     @Inject
     PositionLocal positionBean;
     private Logger logger = Logger.getLogger(PositionEndpoint.class.getName());
@@ -56,14 +52,14 @@ public class PositionEndpoint {
     }
 
     @GET
-    public List<Position> listAllPositions(@QueryParam("start") final Integer startPosition, @QueryParam("max") final Integer maxResult) {
+    public Response listAllPositions(@QueryParam("start") final Integer startPosition, @QueryParam("max") final Integer maxResult) {
         final List<Position> positions = this.positionBean.getAllPositions();
 
         if (positions == null) {
             logger.warning("No positions found in this portfolio");
-            return null;
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return positions;
+        return Response.ok(positions).build();
     }
 
     @Transactional
@@ -76,9 +72,14 @@ public class PositionEndpoint {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         try {
-            this.positionBean.updatePosition(position);
-            logger.info("Updated: " + position.getTicker() + " position in the table");
-            return Response.noContent().build();
+            if (findPositionByContractId(cid).getStatus() == Response.Status.OK.getStatusCode()) {
+                this.positionBean.updatePosition(position);
+                logger.info("Updated: " + position.getTicker() + " position in the table");
+                return Response.noContent().build();
+            } else {
+                logger.warning("[updatePosition] No position found with such id: " + cid);
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
         } catch (NoResultException e) {
             logger.warning("[updatePosition] No position found with such id: " + cid);
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -90,12 +91,15 @@ public class PositionEndpoint {
     @Path("/{cid:[0-9]+}")
     public Response deletePositionByContractId(@PathParam("cid") final int cid) {
         try {
-            Position position = this.entityManager.createQuery("select p from Position p where p.contractId =:contractId", Position.class)
-                    .setParameter("contractId", cid)
-                    .getSingleResult();
-            this.positionBean.deletePosition(position);
-            logger.info("Position: " + position.getTicker() + " was deleted from the table");
-            return Response.noContent().build();
+            if (findPositionByContractId(cid).getStatus() == Response.Status.OK.getStatusCode()) {
+                Position position = this.positionBean.findPositionById(cid);
+                this.positionBean.deletePosition(position);
+                logger.info("Position: " + position.getTicker() + " was deleted from the table");
+                return Response.noContent().build();
+            } else {
+                logger.warning("[deletePosition] No position found with such contractId: " + cid);
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
         } catch (NoResultException e) {
             logger.warning("[deletePosition] No position found with such id: " + cid);
             return Response.status(Response.Status.NOT_FOUND).build();
