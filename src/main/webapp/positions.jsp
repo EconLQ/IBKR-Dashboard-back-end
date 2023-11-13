@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="en-US"/>
 <html>
 <head>
     <title>Positions Dashboard</title>
@@ -46,6 +48,17 @@
     </c:forEach>
     </tbody>
 </table>
+
+<p>
+    Portfolio Net Liquidation Value (The basis for determining the price of the assets in your account. <br>Total cash
+    value + stock value + options value + bond value):
+    <span style="font-weight: bold; font-style: italic" id="portfolioNetLiq"></span>
+</p>
+<script>
+    // get portfolio net liquidation value from request param
+    const num = ${portfolioNetLiquidation};
+    document.getElementById("portfolioNetLiq").innerHTML = num.toLocaleString("en-US");
+</script>
 <p>
     Portfolio Daily Unrealized PnL:
     <c:choose>

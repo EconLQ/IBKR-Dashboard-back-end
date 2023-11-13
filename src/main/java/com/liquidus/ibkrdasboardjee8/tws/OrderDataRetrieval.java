@@ -64,4 +64,13 @@ public class OrderDataRetrieval implements Serializable {
     public double portfolioRealizedPnL() {
         return wrapper.getPortfolioRealizedPnL();
     }
+
+    /**
+     * Get portfolio Net Liquidation value from {@link com.ib.client.EClient#reqAccountSummary(int, String, String)}
+     *
+     * @return {@link EWrapperImpl#getPortfolioNetLiquidation()}: total cash value + stock value + options value + bond value
+     */
+    public double portfolioNetLiquidation() {
+        return wrapper.getPortfolioNetLiquidation();
+    }
 }

@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Removed solved TODO">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpointTest.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/positions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/positions.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="testing-rest" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,36 +60,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "testing-rest",
-    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37176725",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
@@ -195,13 +195,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PositionEndpointTest.testCreatePosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.PositionEndpointTest" />
+      <option name="METHOD_NAME" value="testCreatePosition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final" />
+      <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
       <item itemvalue="JUnit.PositionEndpointTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PositionEndpointTest" />
+        <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +247,10 @@
       <workItem from="1699390647312" duration="3193000" />
       <workItem from="1699455908986" duration="1229000" />
       <workItem from="1699467844286" duration="6848000" />
-      <workItem from="1699552445879" duration="9645000" />
+      <workItem from="1699552445879" duration="11431000" />
+      <workItem from="1699639429546" duration="1736000" />
+      <workItem from="1699888088822" duration="19000" />
+      <workItem from="1699888113072" duration="3092000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -287,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699395128934</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act">
+      <option name="closed" value="true" />
+      <created>1699562544989</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699562544989</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +341,8 @@
     <MESSAGE value="Fixed representation of the position size inside the table" />
     <MESSAGE value="Added tws logo to the main page" />
     <MESSAGE value="Removed solved TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed solved TODO" />
+    <MESSAGE value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -322,7 +352,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java</url>
-          <line>338</line>
+          <line>349</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

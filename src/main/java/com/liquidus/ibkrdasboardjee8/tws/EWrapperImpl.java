@@ -15,7 +15,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.logging.Logger;
 
-
+/**
+ * Implementation of {@link EWrapper} interface from <a href="https://interactivebrokers.github.io/tws-api/interfaceIBApi_1_1EWrapper.html">IBApi</a>
+ */
 @Named
 @RequestScoped
 public class EWrapperImpl implements EWrapper, Serializable {
@@ -27,6 +29,8 @@ public class EWrapperImpl implements EWrapper, Serializable {
     // ![portfolio] PnL
     private double portfolioUnrealizedPnL;
     private double portfolioRealizedPnL;
+    // ![portfolio] Net Liquidation
+    private double portfolioNetLiquidation;
     // position's current market price
     private double currMarketPrice;
 
@@ -34,6 +38,10 @@ public class EWrapperImpl implements EWrapper, Serializable {
         readerSignal = new EJavaSignal();
         clientSocket = new EClientSocket(this, readerSignal);
         currentOrderId++;
+    }
+
+    public double getPortfolioNetLiquidation() {
+        return portfolioNetLiquidation;
     }
 
     public double getPortfolioUnrealizedPnL() {
@@ -122,6 +130,10 @@ public class EWrapperImpl implements EWrapper, Serializable {
             this.portfolioRealizedPnL = Double.parseDouble(value);
         } else if (key.equals("UnrealizedPnL")) {
             this.portfolioUnrealizedPnL = Double.parseDouble(value);
+        }
+
+        if (key.equals("NetLiquidation")) {
+            this.portfolioNetLiquidation = Double.parseDouble(value);
         }
     }
 

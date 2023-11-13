@@ -43,11 +43,13 @@ public class AppServlet extends HttpServlet {
             // calculate portfolio PnL
             double portfolioUnrealizedPnL = app.portfolioUnrealizedPnL();
             double portfolioRealizedPnL = app.portfolioRealizedPnL();
+            double portfolioNetLiquidation = app.portfolioNetLiquidation();
 
             List<Position> positions = positionBean.getAllPositions();
             req.setAttribute("positions", positions);
             req.setAttribute("portfolioUnrealizedPnL", portfolioUnrealizedPnL);
             req.setAttribute("portfolioRealizedPnL", portfolioRealizedPnL);
+            req.setAttribute("portfolioNetLiquidation", portfolioNetLiquidation);
             getServletContext().getRequestDispatcher("/positions.jsp").forward(req, resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);
