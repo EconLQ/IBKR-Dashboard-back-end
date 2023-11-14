@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added CORSFilter to fix client communication error between back and front">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/positions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/positions.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,15 +29,15 @@
         <option value="Interface" />
         <option value="Jsp File" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="testing-rest" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,7 +68,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;connecting-front-end&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -250,7 +247,9 @@
       <workItem from="1699552445879" duration="11431000" />
       <workItem from="1699639429546" duration="1736000" />
       <workItem from="1699888088822" duration="19000" />
-      <workItem from="1699888113072" duration="3092000" />
+      <workItem from="1699888113072" duration="3509000" />
+      <workItem from="1699906836506" duration="838000" />
+      <workItem from="1699988094591" duration="1090000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -316,7 +315,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699562544989</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Get portfolio net liquidation from EWrapper updateAccountSummary() and pass it to the application for further view">
+      <option name="closed" value="true" />
+      <created>1699891325170</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699891325170</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added CORSFilter to fix client communication error between back and front">
+      <option name="closed" value="true" />
+      <created>1699988370731</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699988370731</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +357,9 @@
     <MESSAGE value="Added tws logo to the main page" />
     <MESSAGE value="Removed solved TODO" />
     <MESSAGE value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
+    <MESSAGE value="Get portfolio net liquidation from EWrapper updateAccountSummary() and pass it to the application for further view" />
+    <MESSAGE value="Added CORSFilter to fix client communication error between back and front" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added CORSFilter to fix client communication error between back and front" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -352,7 +369,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java</url>
-          <line>349</line>
+          <line>350</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
