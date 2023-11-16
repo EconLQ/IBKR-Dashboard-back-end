@@ -26,34 +26,36 @@ public class AppServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         logger.info("Starting AppServlet...");
-        try {
-            // run application - init EWrapperImpl, get EClient and EReader signal
-            app.run();
-        } catch (InterruptedException e) {
-            logger.warning("Failed to start application: " + e.getMessage());
-        }
+        // run application - init EWrapperImpl, get EClient and EReader signal
+        app.run();
         super.init();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
-            // request portfolio updates from the app
-            app.getPortfolioUpdates();
-            // calculate portfolio PnL
-            double portfolioUnrealizedPnL = app.portfolioUnrealizedPnL();
-            double portfolioRealizedPnL = app.portfolioRealizedPnL();
-            double portfolioNetLiquidation = app.portfolioNetLiquidation();
+            if (app.isConnected()) {
+                // request portfolio updates from the app
+                app.getPortfolioUpdates();
+                // calculate portfolio PnL
+                double portfolioUnrealizedPnL = app.portfolioUnrealizedPnL();
+                double portfolioRealizedPnL = app.portfolioRealizedPnL();
+                double portfolioNetLiquidation = app.portfolioNetLiquidation();
 
-            List<Position> positions = positionBean.getAllPositions();
-            req.setAttribute("positions", positions);
-            req.setAttribute("portfolioUnrealizedPnL", portfolioUnrealizedPnL);
-            req.setAttribute("portfolioRealizedPnL", portfolioRealizedPnL);
-            req.setAttribute("portfolioNetLiquidation", portfolioNetLiquidation);
+                List<Position> positions = positionBean.getAllPositions();
+                req.setAttribute("positions", positions);
+                req.setAttribute("portfolioUnrealizedPnL", portfolioUnrealizedPnL);
+                req.setAttribute("portfolioRealizedPnL", portfolioRealizedPnL);
+                req.setAttribute("portfolioNetLiquidation", portfolioNetLiquidation);
 
-            resp.setHeader("Refresh", "15; URL=app-servlet"); // refresh page each 5s
+                resp.setHeader("Refresh", "15; URL=app-servlet"); // refresh page each 5s
 
-            getServletContext().getRequestDispatcher("/positions.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher("/positions.jsp").forward(req, resp);
+            } else {
+                // app was disconnected, try to connect one more time...
+                logger.warning("App is not connected to TWS/IB Gateway. Trying to establish connection...");
+                app.run();
+            }
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }
