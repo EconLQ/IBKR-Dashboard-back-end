@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 @SessionScoped
 public class OrderDataRetrieval implements Serializable {
     private static final String ACCOUNT_CODE = "DU6742034";
-    private static Logger logger = Logger.getLogger(OrderDataRetrieval.class.getName());
+    private static final Logger logger = Logger.getLogger(OrderDataRetrieval.class.getName());
     private final EWrapperImpl wrapper = new EWrapperImpl();
     private final EClientSocket clientSocket = wrapper.getClient();
     private final EReaderSignal readerSignal = wrapper.getSignal();
@@ -26,8 +26,16 @@ public class OrderDataRetrieval implements Serializable {
     public OrderDataRetrieval() {
     }
 
-    public void run() throws InterruptedException {
-        twsConnection.run(clientSocket, readerSignal);
+    public void run() {
+        try {
+            twsConnection.run(clientSocket, readerSignal);
+        } catch (InterruptedException e) {
+            logger.severe("Couldn't establish connection to IB API: " + e.getMessage());
+        }
+    }
+
+    public boolean isConnected() {
+        return clientSocket.isConnected();
     }
 
     public void getPortfolioUpdates() {

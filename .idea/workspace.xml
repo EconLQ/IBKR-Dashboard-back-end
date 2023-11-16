@@ -9,9 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added CORSFilter to fix client communication error between back and front">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added refresh header to automatically refresh /app-servlet and request updated data about positions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +250,8 @@
       <workItem from="1699888088822" duration="19000" />
       <workItem from="1699888113072" duration="3509000" />
       <workItem from="1699906836506" duration="838000" />
-      <workItem from="1699988094591" duration="1090000" />
+      <workItem from="1699988094591" duration="1352000" />
+      <workItem from="1700163423499" duration="1398000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -331,7 +333,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699988370731</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added refresh header to automatically refresh /app-servlet and request updated data about positions">
+      <option name="closed" value="true" />
+      <created>1699989336455</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699989336455</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added refresh header to automatically refresh /app-servlet and request updated data about positions">
+      <option name="closed" value="true" />
+      <created>1699989349746</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699989349746</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +377,8 @@
     <MESSAGE value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
     <MESSAGE value="Get portfolio net liquidation from EWrapper updateAccountSummary() and pass it to the application for further view" />
     <MESSAGE value="Added CORSFilter to fix client communication error between back and front" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CORSFilter to fix client communication error between back and front" />
+    <MESSAGE value="Added refresh header to automatically refresh /app-servlet and request updated data about positions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added refresh header to automatically refresh /app-servlet and request updated data about positions" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
