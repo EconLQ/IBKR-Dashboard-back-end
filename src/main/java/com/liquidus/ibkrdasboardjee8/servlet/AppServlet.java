@@ -48,7 +48,7 @@ public class AppServlet extends HttpServlet {
                 req.setAttribute("portfolioRealizedPnL", portfolioRealizedPnL);
                 req.setAttribute("portfolioNetLiquidation", portfolioNetLiquidation);
 
-                resp.setHeader("Refresh", "15; URL=app-servlet"); // refresh page each 5s
+                resp.setHeader("Refresh", "15; URL=app-servlet"); // refresh page each 15s
 
                 getServletContext().getRequestDispatcher("/positions.jsp").forward(req, resp);
             } else {
