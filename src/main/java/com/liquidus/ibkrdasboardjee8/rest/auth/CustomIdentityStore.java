@@ -23,7 +23,6 @@ public class CustomIdentityStore implements IdentityStore {
 
     @Override
     public CredentialValidationResult validate(Credential credential) {
-        logger.info("credential is instanceof of UsernamePasswordCredential? " + String.valueOf(credential instanceof UsernamePasswordCredential));
         if (credential instanceof UsernamePasswordCredential) {
             UsernamePasswordCredential usernamePasswordCredential = (UsernamePasswordCredential) credential;
             String username = usernamePasswordCredential.getCaller();

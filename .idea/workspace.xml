@@ -9,15 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Improved a bit a logic when the connection to TWS or IB Gateway closed/interrupted via the simple check and re-run of application on fail">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/UserBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/enitity/User.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/CORSFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/IBKRDashboardRestApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/IBKRDashboardRestApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +243,7 @@
       <workItem from="1700419646440" duration="6507000" />
       <workItem from="1700473810265" duration="5760000" />
       <workItem from="1700553007052" duration="21564000" />
-      <workItem from="1700644624952" duration="11523000" />
+      <workItem from="1700644624952" duration="14324000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -354,7 +349,63 @@
       <option name="project" value="LOCAL" />
       <updated>1700165085804</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated comment on refresh response header">
+      <option name="closed" value="true" />
+      <created>1700687125515</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687125515</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Created User entity to store username, password and accountId">
+      <option name="closed" value="true" />
+      <created>1700687146587</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687146587</updated>
+    </task>
+    <task id="LOCAL-00016" summary="UserBean manages User entity and retrieve accountId by username">
+      <option name="closed" value="true" />
+      <created>1700687176161</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687176161</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added new response headers to increase security">
+      <option name="closed" value="true" />
+      <created>1700687207494</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687207494</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Created CustomIdentityStore to validate user with the password matched in db and return CallerPrincipal">
+      <option name="closed" value="true" />
+      <created>1700687285168</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687285168</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Annotated with BasicAuthenticationMechanismDefinition to implement the HTTP basic access authentication protocol">
+      <option name="closed" value="true" />
+      <created>1700687360678</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687360678</updated>
+    </task>
+    <task id="LOCAL-00020" summary="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore">
+      <option name="closed" value="true" />
+      <created>1700687398289</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700687398289</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +435,14 @@
     <MESSAGE value="Added CORSFilter to fix client communication error between back and front" />
     <MESSAGE value="Added refresh header to automatically refresh /app-servlet and request updated data about positions" />
     <MESSAGE value="Improved a bit a logic when the connection to TWS or IB Gateway closed/interrupted via the simple check and re-run of application on fail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved a bit a logic when the connection to TWS or IB Gateway closed/interrupted via the simple check and re-run of application on fail" />
+    <MESSAGE value="Updated comment on refresh response header" />
+    <MESSAGE value="Created User entity to store username, password and accountId" />
+    <MESSAGE value="UserBean manages User entity and retrieve accountId by username" />
+    <MESSAGE value="Added new response headers to increase security" />
+    <MESSAGE value="Created CustomIdentityStore to validate user with the password matched in db and return CallerPrincipal" />
+    <MESSAGE value="Annotated with BasicAuthenticationMechanismDefinition to implement the HTTP basic access authentication protocol" />
+    <MESSAGE value="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore" />
+    <option name="LAST_COMMIT_MESSAGE" value="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
