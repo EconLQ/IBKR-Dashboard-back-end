@@ -3,6 +3,7 @@ package com.liquidus.ibkrdasboardjee8.tws;
 import com.ib.client.EClientSocket;
 import com.ib.client.EReaderSignal;
 import com.liquidus.ibkrdasboardjee8.dao.PositionLocal;
+import com.liquidus.ibkrdasboardjee8.rest.auth.enitity.User;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -13,7 +14,6 @@ import java.util.logging.Logger;
 @Named
 @SessionScoped
 public class OrderDataRetrieval implements Serializable {
-    private static final String ACCOUNT_CODE = "DU6742034";
     private static final Logger logger = Logger.getLogger(OrderDataRetrieval.class.getName());
     private final EWrapperImpl wrapper = new EWrapperImpl();
     private final EClientSocket clientSocket = wrapper.getClient();
@@ -22,8 +22,22 @@ public class OrderDataRetrieval implements Serializable {
     PositionLocal positionBean;
     @Inject
     TWSConnection twsConnection;
+    private String accountCode;
 
     public OrderDataRetrieval() {
+    }
+
+    public String getAccountCode() {
+        return accountCode;
+    }
+
+    /**
+     * Gets accountCode from the successfully logged user in {@link com.liquidus.ibkrdasboardjee8.rest.auth.LoginResource#login(User)}
+     *
+     * @param accountCode is the account code from{@link com.ib.client.EClient#reqAccountUpdates(boolean, String)}
+     */
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
     }
 
     public void run() {
@@ -39,11 +53,10 @@ public class OrderDataRetrieval implements Serializable {
     }
 
     public void getPortfolioUpdates() {
-        clientSocket.reqPositions();
         try {
             Thread.sleep(1000);
             // request account updates (from TWS -> Account -> Account Window)
-            clientSocket.reqAccountUpdates(true, ACCOUNT_CODE);
+            clientSocket.reqAccountUpdates(true, this.getAccountCode());
             Thread.sleep(1000);
 
             // add positions to Position table
