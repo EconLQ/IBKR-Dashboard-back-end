@@ -31,7 +31,7 @@ public class CustomIdentityStore implements IdentityStore {
             if (isValidUser(username, password)) {
                 // create CallerPrincipal with the validated username
                 CallerPrincipal callerPrincipal = new CallerPrincipal(username);
-                logger.info("CallerPrincipal object: " + callerPrincipal.getName());
+                logger.info("CallerPrincipal name: " + callerPrincipal.getName());
                 return new CredentialValidationResult(callerPrincipal, new HashSet<>(List.of("USER")));
             }
         }
