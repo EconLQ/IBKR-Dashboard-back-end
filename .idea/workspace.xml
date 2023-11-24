@@ -9,11 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Updated logic of getting IB accountCode from the valid CredentialValidationResult in LoginResource login method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/UserBean.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="connecting-front-end" />
+        <entry key="$PROJECT_DIR$" value="login-auth" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +71,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;login-auth&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -197,12 +198,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PositionEndpointTest.testCreatePosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.PositionEndpointTest" />
+      <option name="METHOD_NAME" value="testCreatePosition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final" />
+      <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
       <item itemvalue="JUnit.PositionEndpointTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PositionEndpointTest" />
+        <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
         <item itemvalue="JUnit.PositionEndpointTest" />
       </list>
     </recent_temporary>
@@ -244,6 +264,7 @@
       <workItem from="1700473810265" duration="5760000" />
       <workItem from="1700553007052" duration="21564000" />
       <workItem from="1700644624952" duration="14324000" />
+      <workItem from="1700769588199" duration="5213000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -446,5 +467,16 @@
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java</url>
+          <line>350</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
