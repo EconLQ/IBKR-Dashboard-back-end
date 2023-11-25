@@ -4,6 +4,7 @@ import com.ib.client.EClientSocket;
 import com.ib.client.EReaderSignal;
 import com.liquidus.ibkrdasboardjee8.dao.PositionLocal;
 import com.liquidus.ibkrdasboardjee8.rest.auth.enitity.User;
+import com.liquidus.ibkrdasboardjee8.rest.auth.resources.LoginResource;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -32,7 +33,7 @@ public class OrderDataRetrieval implements Serializable {
     }
 
     /**
-     * Gets accountCode from the successfully logged user in {@link com.liquidus.ibkrdasboardjee8.rest.auth.LoginResource#login(User)}
+     * Gets accountCode from the successfully logged user in {@link LoginResource#login(User)}
      *
      * @param accountCode is the account code from{@link com.ib.client.EClient#reqAccountUpdates(boolean, String)}
      */
@@ -52,6 +53,13 @@ public class OrderDataRetrieval implements Serializable {
         return clientSocket.isConnected();
     }
 
+    public void disconnectIbClient() {
+        // disconnect from IB
+        this.clientSocket.eDisconnect();
+        int orderId = this.wrapper.getCurrentOrderId();
+        // pass incremented orderId value for future calls
+        this.wrapper.nextValidId(++orderId);
+    }
     public void getPortfolioUpdates() {
         try {
             Thread.sleep(1000);
