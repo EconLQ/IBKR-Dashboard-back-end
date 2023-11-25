@@ -23,6 +23,10 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "salt")
+    private String salt;
+    @Column(name = "iterations")
+    private int iterations;
     @NotNull
     @Column(name = "accountId")
     private String accountId;
@@ -39,6 +43,22 @@ public class User {
         this.username = username;
         this.password = password;
         this.accountId = accountId;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public int getIterations() {
+        return iterations;
+    }
+
+    public void setIterations(int iterations) {
+        this.iterations = iterations;
     }
 
     public String getUsername() {

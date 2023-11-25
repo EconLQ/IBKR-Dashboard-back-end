@@ -7,7 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.logging.Logger;
+
+import static com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtil.hashPassword;
 
 
 @RequestScoped
@@ -43,7 +46,14 @@ public class UserBean implements Serializable {
             return;
         }
         if (!findUserByUsername(user.getUsername())) {
-            // no user with such username
+            // get array which contains hashed password, salt and iterations
+            String[] password = hashPassword(user.getPassword());
+            // set password
+            user.setPassword(Base64.getEncoder().encodeToString(password[0].getBytes()));
+            // set salt
+            user.setSalt(password[1]);
+            // set iterations
+            user.setIterations(Integer.parseInt(password[2]));
             entityManager.merge(user);
         }
     }
