@@ -9,12 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Updated logic of getting IB accountCode from the valid CredentialValidationResult in LoginResource login method">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added basic functionality for login, logout and sign-up resources">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/util/PasswordHashingUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/auth/util/PasswordHashingUtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/CustomIdentityStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/LoginResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/enitity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/enitity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +34,8 @@
         <option value="Interface" />
         <option value="Jsp File" />
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,36 +62,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "login-auth",
+    "grid.search.filter.rows": "true",
+    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37176725",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
@@ -101,13 +104,27 @@
       <recent name="com.liquidus.ibkrdasboardjee8.auth" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.liquidus.ibkrdasboardjee8.rest.auth.util" />
       <recent name="com.liquidus.ibkrdasboardjee8.rest" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.liquidus.ibkrdasboardjee8.tws" />
     </key>
   </component>
-  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final">
+  <component name="RunManager" selected="JUnit.PasswordHashingUtilTest">
+    <configuration name="PasswordHashingUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtil" />
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JBoss/WildFly 16.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 16.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/IBKR-Dashboard-JEE8-1.0-SNAPSHOT" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -182,6 +199,21 @@
         </option>
       </method>
     </configuration>
+    <configuration name="PasswordHashingUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.auth.util" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PositionEndpointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IBKR-Dashboard-JEE8" />
       <extension name="coverage">
@@ -215,12 +247,16 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.PasswordHashingUtil" />
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final" />
+      <item itemvalue="JUnit.PasswordHashingUtilTest" />
       <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
       <item itemvalue="JUnit.PositionEndpointTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PasswordHashingUtilTest" />
+        <item itemvalue="Application.PasswordHashingUtil" />
         <item itemvalue="JUnit.PositionEndpointTest" />
         <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
         <item itemvalue="JUnit.PositionEndpointTest" />
@@ -265,6 +301,7 @@
       <workItem from="1700553007052" duration="21564000" />
       <workItem from="1700644624952" duration="14324000" />
       <workItem from="1700769588199" duration="5213000" />
+      <workItem from="1700909642008" duration="17175000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -426,7 +463,31 @@
       <option name="project" value="LOCAL" />
       <updated>1700687398289</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added method to disconnect from IB Client on logout request">
+      <option name="closed" value="true" />
+      <created>1700871753570</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1700871753570</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added method to add User to the table and boolean check method to find user by username">
+      <option name="closed" value="true" />
+      <created>1700871805482</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1700871805482</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added basic functionality for login, logout and sign-up resources">
+      <option name="closed" value="true" />
+      <created>1700871860688</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1700871860688</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +524,10 @@
     <MESSAGE value="Created CustomIdentityStore to validate user with the password matched in db and return CallerPrincipal" />
     <MESSAGE value="Annotated with BasicAuthenticationMechanismDefinition to implement the HTTP basic access authentication protocol" />
     <MESSAGE value="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore" />
-    <option name="LAST_COMMIT_MESSAGE" value="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore" />
+    <MESSAGE value="Added method to disconnect from IB Client on logout request" />
+    <MESSAGE value="Added method to add User to the table and boolean check method to find user by username" />
+    <MESSAGE value="Added basic functionality for login, logout and sign-up resources" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added basic functionality for login, logout and sign-up resources" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -11,9 +11,13 @@ import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
 import javax.security.enterprise.identitystore.CredentialValidationResult;
 import javax.security.enterprise.identitystore.IdentityStore;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Logger;
+
+import static com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtil.getUserPassword;
+import static com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtil.isMatched;
 
 @ApplicationScoped
 public class CustomIdentityStore implements IdentityStore {
@@ -51,9 +55,19 @@ public class CustomIdentityStore implements IdentityStore {
         } catch (NoResultException e) {
             logger.warning("No user with such username: " + username);
         }
-        if (user != null && user.getPassword().equals(password)) {
-            logger.info("User has been verified...");
-            return true;
+
+        if (user != null) {
+            // get user's decoded password, salt and iterations
+            String[] pwd = getUserPassword(username);
+            assert pwd != null;
+            // validate password from request with the one stored in DB
+            if (isMatched(pwd[0], password, Base64.getDecoder().decode(pwd[1]), Integer.parseInt(pwd[2]))) {
+                logger.info("User [" + username + "] has been verified...");
+                return true;
+            } else {
+                logger.warning("Validation failed. Password doesn't match.");
+                return false;
+            }
         }
         return false;
     }

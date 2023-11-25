@@ -1,5 +1,6 @@
-package com.liquidus.ibkrdasboardjee8.rest.auth;
+package com.liquidus.ibkrdasboardjee8.rest.auth.resources;
 
+import com.liquidus.ibkrdasboardjee8.rest.auth.UserBean;
 import com.liquidus.ibkrdasboardjee8.rest.auth.enitity.User;
 import com.liquidus.ibkrdasboardjee8.tws.OrderDataRetrieval;
 import io.jsonwebtoken.Jwts;
@@ -52,7 +53,8 @@ public class LoginResource {
 
             // set IB's accountCode for that user
             app.setAccountCode(userBean.getAccountId(result.getCallerPrincipal().getName()));
-
+            // run application to start connection to IB
+            app.run();
             // generate JWT token to pass to client
             String token = generateJWT(result.getCallerPrincipal().getName());
             JsonObject responseJson = Json.createObjectBuilder()
