@@ -37,4 +37,32 @@ public class UserBean implements Serializable {
         return accountId;
     }
 
+    public void addUser(User user) {
+        if (user == null) {
+            logger.warning("[userBean] Passed user is null");
+            return;
+        }
+        if (!findUserByUsername(user.getUsername())) {
+            // no user with such username
+            entityManager.merge(user);
+        }
+    }
+
+    public boolean findUserByUsername(String username) {
+        if (username.isEmpty()) {
+            logger.warning("[userBean] Passed username is null");
+            return false;
+        }
+
+        User user;
+        try {
+            user = entityManager.createQuery("select u from User u where u.username =:username", User.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            logger.warning("No user with such username: " + username);
+            return false;
+        }
+        return user != null;
+    }
 }
