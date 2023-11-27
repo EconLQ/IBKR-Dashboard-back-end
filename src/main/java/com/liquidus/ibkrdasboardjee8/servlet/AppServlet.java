@@ -48,11 +48,11 @@ public class AppServlet extends HttpServlet {
                 req.setAttribute("portfolioRealizedPnL", portfolioRealizedPnL);
                 req.setAttribute("portfolioNetLiquidation", portfolioNetLiquidation);
 
-                resp.setHeader("Refresh", "15; URL=app-servlet"); // refresh page each 15s
+                resp.setHeader("Refresh", "30; URL=app-servlet"); // refresh page each 30s
 
                 getServletContext().getRequestDispatcher("/positions.jsp").forward(req, resp);
             } else {
-                // app was disconnected, try to connect one more time...
+                // app was disconnected as user logged out, try to connect one more time...
                 logger.warning("App is not connected to TWS/IB Gateway. Trying to establish connection...");
                 app.run();
             }
