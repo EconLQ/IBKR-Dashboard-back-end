@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added basic functionality for login, logout and sign-up resources">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Removed EJB annotations to avoid obfuscation during EJB container launch">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/resources/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/auth/resources/LoginResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" afterDir="false" />
     </list>
@@ -485,7 +483,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700871860688</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Corrected comments. Still thinking whether I need this servlet for running OrderDataRetrieval app">
+      <option name="closed" value="true" />
+      <created>1701121251054</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701121251054</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Removed EJB annotations to avoid obfuscation during EJB container launch">
+      <option name="closed" value="true" />
+      <created>1701121304398</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701121304398</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +540,9 @@
     <MESSAGE value="Added method to add User to the table and boolean check method to find user by username" />
     <MESSAGE value="Added basic functionality for login, logout and sign-up resources" />
     <MESSAGE value="Corrected comments. Still thinking whether I need this servlet for app instaniation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected comments. Still thinking whether I need this servlet for app instaniation" />
+    <MESSAGE value="Corrected comments. Still thinking whether I need this servlet for running OrderDataRetrieval app" />
+    <MESSAGE value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
