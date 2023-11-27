@@ -1,7 +1,5 @@
 package com.liquidus.ibkrdasboardjee8.tws;
 
-import com.ib.client.EClientSocket;
-import com.ib.client.EReaderSignal;
 import com.liquidus.ibkrdasboardjee8.dao.PositionLocal;
 import com.liquidus.ibkrdasboardjee8.rest.auth.enitity.User;
 import com.liquidus.ibkrdasboardjee8.rest.auth.resources.LoginResource;
@@ -16,9 +14,6 @@ import java.util.logging.Logger;
 @SessionScoped
 public class OrderDataRetrieval implements Serializable {
     private static final Logger logger = Logger.getLogger(OrderDataRetrieval.class.getName());
-    private final EWrapperImpl wrapper = new EWrapperImpl();
-    private final EClientSocket clientSocket = wrapper.getClient();
-    private final EReaderSignal readerSignal = wrapper.getSignal();
     @Inject
     PositionLocal positionBean;
     @Inject
@@ -43,33 +38,41 @@ public class OrderDataRetrieval implements Serializable {
 
     public void run() {
         try {
-            twsConnection.run(clientSocket, readerSignal);
+            twsConnection.run();
         } catch (InterruptedException e) {
             logger.severe("Couldn't establish connection to IB API: " + e.getMessage());
         }
     }
 
+    /**
+     * Checks whether the connection is alive
+     *
+     * @return true if connection still alive
+     */
     public boolean isConnected() {
-        return clientSocket.isConnected();
+        return twsConnection.isConnected();
     }
 
+    /**
+     * Disconnect from IB API
+     */
     public void disconnectIbClient() {
-        // disconnect from IB
-        this.clientSocket.eDisconnect();
-        int orderId = this.wrapper.getCurrentOrderId();
-        // pass incremented orderId value for future calls
-        this.wrapper.nextValidId(++orderId);
+        twsConnection.disconnect();
     }
+
     public void getPortfolioUpdates() {
         try {
             Thread.sleep(1000);
             // request account updates (from TWS -> Account -> Account Window)
-            clientSocket.reqAccountUpdates(true, this.getAccountCode());
+            logger.warning("this.getAccountCode(): " + this.getAccountCode());
+            twsConnection.getClientSocket().reqAccountUpdates(true, this.getAccountCode());
             Thread.sleep(1000);
 
             // add positions to Position table
             logger.info("Get a list of all positions from the table Position: ");
-            wrapper.getPositions().forEach(position -> positionBean.addPosition(position));
+            twsConnection.getWrapper()
+                    .getPositions()
+                    .forEach(position -> positionBean.addPosition(position));
         } catch (InterruptedException e) {
             logger.warning("Connection was interrupted: " + e.getMessage());
         }
@@ -82,7 +85,7 @@ public class OrderDataRetrieval implements Serializable {
      * @return portfolio unrealized PnL from the account updates
      */
     public double portfolioUnrealizedPnL() {
-        return wrapper.getPortfolioUnrealizedPnL();
+        return twsConnection.getWrapper().getPortfolioUnrealizedPnL();
     }
 
     /**
@@ -91,7 +94,7 @@ public class OrderDataRetrieval implements Serializable {
      * @return portfolio realized PnL from the account updates
      */
     public double portfolioRealizedPnL() {
-        return wrapper.getPortfolioRealizedPnL();
+        return twsConnection.getWrapper().getPortfolioRealizedPnL();
     }
 
     /**
@@ -100,6 +103,6 @@ public class OrderDataRetrieval implements Serializable {
      * @return {@link EWrapperImpl#getPortfolioNetLiquidation()}: total cash value + stock value + options value + bond value
      */
     public double portfolioNetLiquidation() {
-        return wrapper.getPortfolioNetLiquidation();
+        return twsConnection.getWrapper().getPortfolioNetLiquidation();
     }
 }
