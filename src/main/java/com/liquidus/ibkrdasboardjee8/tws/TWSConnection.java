@@ -18,20 +18,33 @@ public class TWSConnection {
     public static final int TWS_PORT = 7496;
     public static final int IB_GATEWAY_PORT = 4002;
     private static final String LOCALHOST = "127.0.0.1";
-
-    private final EWrapperImpl wrapper = new EWrapperImpl();
     Logger logger = Logger.getLogger(TWSConnection.class.getName());
+    private int currentOrderId = 3;
+    private EWrapperImpl wrapper = new EWrapperImpl();
+    private final EClientSocket clientSocket = wrapper.getClient();
+    private final EReaderSignal readerSignal = wrapper.getSignal();
 
     public TWSConnection() {
     }
 
-    public void run(EClientSocket clientSocket, EReaderSignal readerSignal) throws InterruptedException {
+    public EWrapperImpl getWrapper() {
+        return wrapper;
+    }
+
+    public EClientSocket getClientSocket() {
+        return clientSocket;
+    }
+
+    public void run() throws InterruptedException {
         logger.info("Connecting to IB API socket...");
 
         // establishing connection to Interactive Broker's TWS or Gateway
         establishConnectionToIB(clientSocket);
+        // increment currentOrderId for the next calls
+        currentOrderId++;
+        wrapper.nextValidId(currentOrderId);
 
-        final EReader reader = new EReader(clientSocket, readerSignal);
+        EReader reader = new EReader(clientSocket, readerSignal);
 
         reader.start();
         new Thread(() -> {
@@ -46,17 +59,18 @@ public class TWSConnection {
         }).start();
 
         Thread.sleep(1000);
-
-//        Thread.sleep(1000);  // sleep for 1s before disconnecting
+//        Thread.sleep(60_000);  // sleep for 1m before disconnecting
 //        clientSocket.eDisconnect();
     }
 
     private void establishConnectionToIB(EClientSocket clientSocket) {
         // trying to connect to TWS first
-        clientSocket.eConnect(LOCALHOST, TWS_PORT, 3);
+        clientSocket.eConnect(LOCALHOST, TWS_PORT, currentOrderId);
+        // increment currentOrderId for the next connection attempt
+        wrapper.nextValidId(currentOrderId++);
         if (!clientSocket.isConnected()) {
             logger.info("Failed to connect to TWS. Trying IB Gateway...");
-            clientSocket.eConnect(LOCALHOST, IB_GATEWAY_PORT, 3);
+            clientSocket.eConnect(LOCALHOST, IB_GATEWAY_PORT, currentOrderId);
 
             if (!clientSocket.isConnected()) {
                 logger.warning("Failed to connect to IB Gateway and TWS. Review host, port or clientId values");
@@ -66,5 +80,13 @@ public class TWSConnection {
         } else {
             logger.info("Connected to TWS...");
         }
+    }
+
+    public boolean isConnected() {
+        return clientSocket.isConnected();
+    }
+
+    public void disconnect() {
+        clientSocket.eDisconnect();
     }
 }
