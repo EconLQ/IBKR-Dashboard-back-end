@@ -4,8 +4,6 @@ package com.liquidus.ibkrdasboardjee8.tws;
 import com.ib.client.*;
 import com.liquidus.ibkrdasboardjee8.entity.Position;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,8 +16,6 @@ import java.util.logging.Logger;
 /**
  * Implementation of {@link EWrapper} interface from <a href="https://interactivebrokers.github.io/tws-api/interfaceIBApi_1_1EWrapper.html">IBApi</a>
  */
-@Named
-@RequestScoped
 public class EWrapperImpl implements EWrapper, Serializable {
     private final EReaderSignal readerSignal;
     private final EClientSocket clientSocket;
