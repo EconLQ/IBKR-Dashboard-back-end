@@ -1,8 +1,6 @@
 package com.liquidus.ibkrdasboardjee8.rest.auth.resources;
 
-import com.liquidus.ibkrdasboardjee8.rest.auth.UserBean;
 import com.liquidus.ibkrdasboardjee8.rest.auth.enitity.User;
-import com.liquidus.ibkrdasboardjee8.tws.OrderDataRetrieval;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -31,10 +29,6 @@ public class LoginResource {
     Logger logger = Logger.getLogger(LoginResource.class.getName());
     @Inject
     private IdentityStore identityStore;
-    @Inject
-    private OrderDataRetrieval app;
-    @Inject
-    private UserBean userBean;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -44,6 +38,14 @@ public class LoginResource {
             logger.warning("Accepted user is null...");
             return Response.status(Response.Status.NOT_ACCEPTABLE).build();
         }
+        // null checks
+        if (loginRequest.getUsername() == null) {
+            logger.warning("Username can't be null...");
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        } else if (loginRequest.getPassword() == null) {
+            logger.warning("Password can't be null...");
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
 
         CredentialValidationResult result = identityStore.validate(
                 new UsernamePasswordCredential(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -51,10 +53,6 @@ public class LoginResource {
         if (result.getStatus() == CredentialValidationResult.Status.VALID) {
             logger.info("User: [" + loginRequest.getUsername() + "] has been authorized");
 
-            // set IB's accountCode for that user
-            app.setAccountCode(userBean.getAccountId(result.getCallerPrincipal().getName()));
-            // run application to start connection to IB
-            app.run();
             // generate JWT token to pass to client
             String token = generateJWT(result.getCallerPrincipal().getName());
             JsonObject responseJson = Json.createObjectBuilder()
