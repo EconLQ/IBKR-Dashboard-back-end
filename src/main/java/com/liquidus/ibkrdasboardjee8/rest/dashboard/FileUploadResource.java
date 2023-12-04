@@ -1,5 +1,6 @@
 package com.liquidus.ibkrdasboardjee8.rest.dashboard;
 
+import com.liquidus.ibkrdasboardjee8.rest.dashboard.util.CsvFileUtils;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
@@ -9,7 +10,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -30,11 +32,15 @@ public class FileUploadResource {
             // get name of the file from the payload
             String fileName = filePart.getHeaders().getFirst("Content-Disposition").split("filename=")[1];
 
+            CsvFileUtils csvFileUtils = new CsvFileUtils();
             // save file to user.home and create dir /reports if not exist
-            String uploadedFileLocation = saveFileToHome(fileName);
+            String uploadedFileLocation = csvFileUtils.saveFileToHome(fileName);
 
             // rewrite saved file with data from file input stream
-            saveToFile(fileInputStream, uploadedFileLocation);
+            csvFileUtils.saveToFile(fileInputStream, uploadedFileLocation);
+
+            // parse .CSV file and save data from the file to the respected tables
+            csvFileUtils.parseCsvFile();
         } catch (IOException e) {
             logger.warning("Failed to read from the input: " + e.getMessage());
             return Response.status(Response.Status.NOT_ACCEPTABLE).build();
@@ -42,57 +48,5 @@ public class FileUploadResource {
 
         // return 200
         return Response.ok().build();
-    }
-
-    /**
-     * Creates reports directory in home and saves file mock file there as a placeholder
-     *
-     * @param fileName name of the file from the received request
-     * @return location of a file
-     */
-    private String saveFileToHome(String fileName) {
-        // skip quotes
-        String fileNameWithoutQuotes = fileName.split("\"")[1];
-
-        String directory = System.getProperty("user.home") + "/reports/";
-        File dir = new File(directory);
-        if (!dir.exists()) {
-            dir.mkdir();
-        }
-
-        String uploadedFileLocation = directory + fileNameWithoutQuotes;
-
-        // save file
-        File fileObject = new File(uploadedFileLocation);
-        if (fileObject.exists()) {
-            fileObject.delete();
-        }
-        return uploadedFileLocation;
-    }
-
-    /**
-     * Save data from the {@link InputStream} to a file at uploadedFileLocation
-     *
-     * @param uploadedInputStream  file's input stream data
-     * @param uploadedFileLocation location of a written file
-     */
-    private void saveToFile(InputStream uploadedInputStream, String uploadedFileLocation) {
-        try {
-            OutputStream out;
-            int read = 0;
-            byte[] bytes = new byte[1024];
-
-            out = new FileOutputStream(uploadedFileLocation);
-            while ((read = uploadedInputStream.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
-            }
-            out.flush();
-            out.close();
-        } catch (FileNotFoundException e) {
-            logger.severe("File could not been found at: " + e.getMessage());
-        } catch (IOException e) {
-            logger.warning("Error to process reading from file: " + e.getMessage());
-        }
-        logger.info("File has been saved to: " + uploadedFileLocation);
     }
 }

@@ -9,12 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Null checks on username and password and removed redundant properties">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/FileUploadResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-deployment-structure.xml" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added new resource for receiving files from the client and save them to the reports folder in user.home">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationByAssetClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationPerformanceByRegion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationPerformanceSector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/ConcentrationHoldings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/HistoricalPerformanceBenchmarkComparison.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/KeyStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/RiskMeasuresBenchmarkComparison.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/TimePeriodBenchmarkComparison.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/CsvFileUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/SaveDataToDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/CORSFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/FileUploadResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/FileUploadResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,12 +117,12 @@
     </key>
   </component>
   <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final">
-    <configuration name="PasswordHashingUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtil" />
+    <configuration name="CsvFileUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.util.CsvFileUtils" />
       <module name="IBKR-Dashboard-JEE8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.*" />
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -245,7 +252,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.PasswordHashingUtil" />
+      <item itemvalue="Application.CsvFileUtils" />
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final" />
       <item itemvalue="JUnit.PasswordHashingUtilTest" />
       <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
@@ -253,11 +260,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CsvFileUtils" />
         <item itemvalue="JUnit.PositionEndpointTest" />
         <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
         <item itemvalue="JUnit.PasswordHashingUtilTest" />
-        <item itemvalue="Application.PasswordHashingUtil" />
-        <item itemvalue="JUnit.PositionEndpointTest" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +312,8 @@
       <workItem from="1701438483917" duration="14684000" />
       <workItem from="1701524113820" duration="1700000" />
       <workItem from="1701527437931" duration="4549000" />
-      <workItem from="1701600246948" duration="7113000" />
+      <workItem from="1701600246948" duration="23976000" />
+      <workItem from="1701711575759" duration="7501000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -516,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701438916212</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added new resource for receiving files from the client and save them to the reports folder in user.home">
+      <option name="closed" value="true" />
+      <created>1701607617650</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701607617650</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Responsible for getting stock's current market price via RapidAPI" />
     <MESSAGE value="Change logic inside updateAccountValue method to get stock's market price from Rapid API" />
     <MESSAGE value="Added JSP to visualize the Positions table" />
     <MESSAGE value="Fixed representation of the position size inside the table" />
@@ -559,7 +573,8 @@
     <MESSAGE value="Corrected comments. Still thinking whether I need this servlet for running OrderDataRetrieval app" />
     <MESSAGE value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
     <MESSAGE value="Null checks on username and password and removed redundant properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Null checks on username and password and removed redundant properties" />
+    <MESSAGE value="Added new resource for receiving files from the client and save them to the reports folder in user.home" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new resource for receiving files from the client and save them to the reports folder in user.home" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
