@@ -9,19 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added new resource for receiving files from the client and save them to the reports folder in user.home">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationByAssetClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationPerformanceByRegion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationPerformanceSector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/ConcentrationHoldings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/HistoricalPerformanceBenchmarkComparison.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/KeyStatistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/RiskMeasuresBenchmarkComparison.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/TimePeriodBenchmarkComparison.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/CsvFileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/SaveDataToDatabase.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Saving data from the CsvFileUtils#parseRowsData() method to the tables">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/FileUploadResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/FileUploadResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +304,8 @@
       <workItem from="1701524113820" duration="1700000" />
       <workItem from="1701527437931" duration="4549000" />
       <workItem from="1701600246948" duration="23976000" />
-      <workItem from="1701711575759" duration="7501000" />
+      <workItem from="1701711575759" duration="8848000" />
+      <workItem from="1701807224181" duration="4373000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -531,7 +523,39 @@
       <option name="project" value="LOCAL" />
       <updated>1701607617650</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Created CsvUtils class that saving file to user.home and performs parsing of the uploaded report">
+      <option name="closed" value="true" />
+      <created>1701723678942</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701723678942</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Created JAX-RS entities for each selected from the parsed csv file. It'll be required for getting data via endpoints later">
+      <option name="closed" value="true" />
+      <created>1701723785965</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701723785965</updated>
+    </task>
+    <task id="LOCAL-00030" summary="This dude is big. It's responsible for writing data to the new file, parsing each row in the report">
+      <option name="closed" value="true" />
+      <created>1701723889913</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1701723889913</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Saving data from the CsvFileUtils#parseRowsData() method to the tables">
+      <option name="closed" value="true" />
+      <created>1701723934445</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1701723934445</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,10 +573,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change logic inside updateAccountValue method to get stock's market price from Rapid API" />
-    <MESSAGE value="Added JSP to visualize the Positions table" />
-    <MESSAGE value="Fixed representation of the position size inside the table" />
-    <MESSAGE value="Added tws logo to the main page" />
     <MESSAGE value="Removed solved TODO" />
     <MESSAGE value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
     <MESSAGE value="Get portfolio net liquidation from EWrapper updateAccountSummary() and pass it to the application for further view" />
@@ -574,7 +594,11 @@
     <MESSAGE value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
     <MESSAGE value="Null checks on username and password and removed redundant properties" />
     <MESSAGE value="Added new resource for receiving files from the client and save them to the reports folder in user.home" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new resource for receiving files from the client and save them to the reports folder in user.home" />
+    <MESSAGE value="Created CsvUtils class that saving file to user.home and performs parsing of the uploaded report" />
+    <MESSAGE value="Created JAX-RS entities for each selected from the parsed csv file. It'll be required for getting data via endpoints later" />
+    <MESSAGE value="This dude is big. It's responsible for writing data to the new file, parsing each row in the report" />
+    <MESSAGE value="Saving data from the CsvFileUtils#parseRowsData() method to the tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saving data from the CsvFileUtils#parseRowsData() method to the tables" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
