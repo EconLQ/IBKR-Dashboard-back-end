@@ -1,7 +1,6 @@
 package com.liquidus.ibkrdasboardjee8.rest.dashboard;
 
-import com.liquidus.ibkrdasboardjee8.rest.dashboard.entity.KeyStatistics;
-import com.liquidus.ibkrdasboardjee8.rest.dashboard.entity.RiskMeasuresBenchmarkComparison;
+import com.liquidus.ibkrdasboardjee8.rest.dashboard.entity.*;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -39,5 +38,77 @@ public class DashboardResource {
             logger.info("Risk Measures Benchmark Comparison table has no data");
         }
         return Response.ok(riskMeasureBenchComp).build();
+    }
+
+    @GET
+    @Path("/allocation-asset-class")
+    @Produces("application/json")
+    public Response allocationByAssetClassEndpoint() {
+        List<AllocationByAssetClass> allocationByAssetClass =
+                dashboardDao.getAllocationByAssetClass();
+        if (allocationByAssetClass.isEmpty()) {
+            logger.info("Allocation By Asset Class table has no data");
+        }
+        return Response.ok(allocationByAssetClass).build();
+    }
+
+    @GET
+    @Path("/allocation-performance-region")
+    @Produces("application/json")
+    public Response allocationPerformanceRegionEndpoint() {
+        List<AllocationPerformanceByRegion> allocationPerformanceByRegion =
+                dashboardDao.getAllocationPerformanceByRegion();
+        if (allocationPerformanceByRegion.isEmpty()) {
+            logger.info("Allocation Performance Region table has no data");
+        }
+        return Response.ok(allocationPerformanceByRegion).build();
+    }
+
+    @GET
+    @Path("/allocation-performance-sector")
+    @Produces("application/json")
+    public Response allocationPerformanceSectorEndpoint() {
+        List<AllocationPerformanceSector> allocationPerformanceSector =
+                dashboardDao.getAllocationPerformanceSector();
+        if (allocationPerformanceSector.isEmpty()) {
+            logger.info("Allocation Performance Sector table has no data");
+        }
+        return Response.ok(allocationPerformanceSector).build();
+    }
+
+    @GET
+    @Path("/hist-perf-bench-comp")
+    @Produces("application/json")
+    public Response historicalPerformanceBenchCompEndpoint() {
+        List<HistoricalPerformanceBenchmarkComparison> comparison =
+                dashboardDao.getHistoricalPerformanceBenchmarkComparison();
+        if (comparison.isEmpty()) {
+            logger.info("Historical Performance Benchmark Comparison has no data");
+        }
+        return Response.ok(comparison).build();
+    }
+
+    @GET
+    @Path("/concentration-holdings")
+    @Produces("application/json")
+    public Response concentrationHoldingsEndpoint() {
+        List<ConcentrationHoldings> concentrationHoldings =
+                dashboardDao.getConcentrationHoldings();
+        if (concentrationHoldings.isEmpty()) {
+            logger.info("Concentration Holdings table has no data");
+        }
+        return Response.ok(concentrationHoldings).build();
+    }
+
+    @GET
+    @Path("/time-period-bench-comp")
+    @Produces("application/json")
+    public Response timePeriodBenchmarkComparisonEndpoint() {
+        List<TimePeriodBenchmarkComparison> timePeriodBenchmarkComparison =
+                dashboardDao.getTimePeriodBenchmarkComparison();
+        if (timePeriodBenchmarkComparison.isEmpty()) {
+            logger.info("Time Period Benchmark Comparison has no data");
+        }
+        return Response.ok(timePeriodBenchmarkComparison).build();
     }
 }

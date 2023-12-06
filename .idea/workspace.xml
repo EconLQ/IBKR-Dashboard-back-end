@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Saving data from the CsvFileUtils#parseRowsData() method to the tables">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Built DAO object to get rows data from the tables created in SaveDataToDatabase class">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +30,8 @@
         <option value="Interface" />
         <option value="Jsp File" />
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -42,6 +42,20 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EconLQ&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4f3496a9-b199-4006-a7bf-074a3bc4ad9e" />
+        <option name="url" value="https://github.com/EconLQ/IBKR-Dashboard-back-end-.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,37 +72,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dashboard&quot;,
-    &quot;grid.search.filter.rows&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "dashboard",
+    "grid.search.filter.rows": "true",
+    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37176725",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
@@ -100,6 +114,7 @@
       <recent name="com.liquidus.ibkrdasboardjee8.auth" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.liquidus.ibkrdasboardjee8.rest.dashboard" />
       <recent name="com.liquidus.ibkrdasboardjee8.rest.auth.util" />
       <recent name="com.liquidus.ibkrdasboardjee8.rest" />
     </key>
@@ -107,7 +122,7 @@
       <recent name="com.liquidus.ibkrdasboardjee8.tws" />
     </key>
   </component>
-  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final">
+  <component name="RunManager" selected="JUnit.DashboardResourceTest.historicalPerformanceBenchCompEndpoint">
     <configuration name="CsvFileUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.util.CsvFileUtils" />
       <module name="IBKR-Dashboard-JEE8" />
@@ -195,17 +210,49 @@
         </option>
       </method>
     </configuration>
-    <configuration name="PasswordHashingUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DashboardResourceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IBKR-Dashboard-JEE8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.*" />
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.auth.util" />
-      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.auth.util.PasswordHashingUtilTest" />
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.DashboardResourceTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DashboardResourceTest.historicalPerformanceBenchCompEndpoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.DashboardResourceTest" />
+      <option name="METHOD_NAME" value="historicalPerformanceBenchCompEndpoint" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DashboardResourceTest.keyStatisticsEndpoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IBKR-Dashboard-JEE8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard" />
+      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.DashboardResourceTest" />
+      <option name="METHOD_NAME" value="keyStatisticsEndpoint" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -226,35 +273,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PositionEndpointTest.testCreatePosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="IBKR-Dashboard-JEE8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.liquidus.ibkrdasboardjee8.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest" />
-      <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.PositionEndpointTest" />
-      <option name="METHOD_NAME" value="testCreatePosition" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.CsvFileUtils" />
       <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final" />
-      <item itemvalue="JUnit.PasswordHashingUtilTest" />
-      <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
+      <item itemvalue="JUnit.DashboardResourceTest" />
+      <item itemvalue="JUnit.DashboardResourceTest.historicalPerformanceBenchCompEndpoint" />
+      <item itemvalue="JUnit.DashboardResourceTest.keyStatisticsEndpoint" />
       <item itemvalue="JUnit.PositionEndpointTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DashboardResourceTest.historicalPerformanceBenchCompEndpoint" />
+        <item itemvalue="JUnit.DashboardResourceTest" />
+        <item itemvalue="JUnit.DashboardResourceTest.keyStatisticsEndpoint" />
         <item itemvalue="Application.CsvFileUtils" />
         <item itemvalue="JUnit.PositionEndpointTest" />
-        <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
-        <item itemvalue="JUnit.PasswordHashingUtilTest" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +338,8 @@
       <workItem from="1701527437931" duration="4549000" />
       <workItem from="1701600246948" duration="23976000" />
       <workItem from="1701711575759" duration="8848000" />
-      <workItem from="1701807224181" duration="4373000" />
+      <workItem from="1701807224181" duration="5177000" />
+      <workItem from="1701887109547" duration="1801000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -555,7 +589,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701723934445</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Built endpoints for two tables: KeyStatistics and RiskMeasuresBenchmarkComparison">
+      <option name="closed" value="true" />
+      <created>1701813128314</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1701813128314</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Built DAO object to get rows data from the tables created in SaveDataToDatabase class">
+      <option name="closed" value="true" />
+      <created>1701813204096</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1701813204096</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,8 +623,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed solved TODO" />
-    <MESSAGE value="Tested REST application with Mocking and JUnit5. Added checker for PUT and DELETE requests to look for position with such cid first, then act" />
     <MESSAGE value="Get portfolio net liquidation from EWrapper updateAccountSummary() and pass it to the application for further view" />
     <MESSAGE value="Added CORSFilter to fix client communication error between back and front" />
     <MESSAGE value="Added refresh header to automatically refresh /app-servlet and request updated data about positions" />
@@ -598,7 +646,9 @@
     <MESSAGE value="Created JAX-RS entities for each selected from the parsed csv file. It'll be required for getting data via endpoints later" />
     <MESSAGE value="This dude is big. It's responsible for writing data to the new file, parsing each row in the report" />
     <MESSAGE value="Saving data from the CsvFileUtils#parseRowsData() method to the tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saving data from the CsvFileUtils#parseRowsData() method to the tables" />
+    <MESSAGE value="Built endpoints for two tables: KeyStatistics and RiskMeasuresBenchmarkComparison" />
+    <MESSAGE value="Built DAO object to get rows data from the tables created in SaveDataToDatabase class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Built DAO object to get rows data from the tables created in SaveDataToDatabase class" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
