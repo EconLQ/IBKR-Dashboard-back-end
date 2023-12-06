@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Built DAO object to get rows data from the tables created in SaveDataToDatabase class">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResourceTest.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,37 +71,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "dashboard",
-    "grid.search.filter.rows": "true",
-    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37176725",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dashboard&quot;,
+    &quot;grid.search.filter.rows&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
@@ -122,7 +121,7 @@
       <recent name="com.liquidus.ibkrdasboardjee8.tws" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DashboardResourceTest.historicalPerformanceBenchCompEndpoint">
+  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final">
     <configuration name="CsvFileUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.util.CsvFileUtils" />
       <module name="IBKR-Dashboard-JEE8" />
@@ -339,7 +338,8 @@
       <workItem from="1701600246948" duration="23976000" />
       <workItem from="1701711575759" duration="8848000" />
       <workItem from="1701807224181" duration="5177000" />
-      <workItem from="1701887109547" duration="1801000" />
+      <workItem from="1701887109547" duration="2768000" />
+      <workItem from="1701893541160" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -605,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701813204096</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response">
+      <option name="closed" value="true" />
+      <created>1701888954315</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1701888954315</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,7 +631,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Get portfolio net liquidation from EWrapper updateAccountSummary() and pass it to the application for further view" />
     <MESSAGE value="Added CORSFilter to fix client communication error between back and front" />
     <MESSAGE value="Added refresh header to automatically refresh /app-servlet and request updated data about positions" />
     <MESSAGE value="Improved a bit a logic when the connection to TWS or IB Gateway closed/interrupted via the simple check and re-run of application on fail" />
@@ -648,7 +655,8 @@
     <MESSAGE value="Saving data from the CsvFileUtils#parseRowsData() method to the tables" />
     <MESSAGE value="Built endpoints for two tables: KeyStatistics and RiskMeasuresBenchmarkComparison" />
     <MESSAGE value="Built DAO object to get rows data from the tables created in SaveDataToDatabase class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Built DAO object to get rows data from the tables created in SaveDataToDatabase class" />
+    <MESSAGE value="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
