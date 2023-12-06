@@ -9,9 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added response statuses on app-servlet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/RiskMeasuresBenchmarkComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/RiskMeasuresBenchmarkComparison.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +340,8 @@
       <workItem from="1701711575759" duration="8848000" />
       <workItem from="1701807224181" duration="5177000" />
       <workItem from="1701887109547" duration="2768000" />
-      <workItem from="1701893541160" duration="308000" />
+      <workItem from="1701893541160" duration="613000" />
+      <workItem from="1701898858729" duration="257000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -613,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701888954315</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added response statuses on app-servlet">
+      <option name="closed" value="true" />
+      <created>1701894109899</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1701894109899</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +641,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added CORSFilter to fix client communication error between back and front" />
     <MESSAGE value="Added refresh header to automatically refresh /app-servlet and request updated data about positions" />
     <MESSAGE value="Improved a bit a logic when the connection to TWS or IB Gateway closed/interrupted via the simple check and re-run of application on fail" />
     <MESSAGE value="Updated comment on refresh response header" />
@@ -656,7 +665,8 @@
     <MESSAGE value="Built endpoints for two tables: KeyStatistics and RiskMeasuresBenchmarkComparison" />
     <MESSAGE value="Built DAO object to get rows data from the tables created in SaveDataToDatabase class" />
     <MESSAGE value="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response" />
+    <MESSAGE value="Added response statuses on app-servlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added response statuses on app-servlet" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
