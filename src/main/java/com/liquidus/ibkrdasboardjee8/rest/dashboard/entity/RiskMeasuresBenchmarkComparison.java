@@ -12,7 +12,8 @@ public class RiskMeasuresBenchmarkComparison {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RISK_MEASURES_BENCHMARK_COMPARISON_ID")
     private int riskMeasuresBenchmarkComparisonId;
-
+    @Column(name = "RISK_RATIO_CATEGORY")
+    private String riskRatioCategory;
     @Column(name = "SPXTR")
     private double spxtr;
     @Column(name = "EFA")
@@ -22,10 +23,19 @@ public class RiskMeasuresBenchmarkComparison {
     @Column(name = "ACCOUNT")
     private double account;
 
+    public String getRiskRatioCategory() {
+        return riskRatioCategory;
+    }
+
+    public void setRiskRatioCategory(String riskRationCategory) {
+        this.riskRatioCategory = riskRationCategory;
+    }
+
     @Override
     public String toString() {
         return "RiskMeasuresBenchmarkComparison{" +
-                "spxtr=" + spxtr +
+                "riskRationCategory='" + riskRatioCategory + '\'' +
+                ", spxtr=" + spxtr +
                 ", efa=" + efa +
                 ", vt=" + vt +
                 ", account=" + account +
