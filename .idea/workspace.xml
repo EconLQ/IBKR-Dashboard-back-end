@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Forgot to include one column from table RISK_MEASURES_BENCHMARK_COMPARISON">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/ConcentrationSectorAllocation.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Util class">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/utils/DropDashboardTablesData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/PositionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationPerformanceByRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/entity/AllocationPerformanceByRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/CsvFileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/CsvFileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/SaveDataToDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/util/SaveDataToDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +342,8 @@
       <workItem from="1701898858729" duration="619000" />
       <workItem from="1701968032869" duration="314000" />
       <workItem from="1702148776440" duration="629000" />
-      <workItem from="1702303456780" duration="5445000" />
+      <workItem from="1702303456780" duration="5999000" />
+      <workItem from="1702310483664" duration="2191000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -638,7 +633,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701899310310</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added methods for managing (CONCENTRATION_SECTOR_ALLOCATION) table. Added endpoint to">
+      <option name="closed" value="true" />
+      <created>1702309986692</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1702309986692</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Changed wrong type (String) to correct (double) on the endity to fix JSON">
+      <option name="closed" value="true" />
+      <created>1702310050433</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1702310050433</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,8 +667,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Improved a bit a logic when the connection to TWS or IB Gateway closed/interrupted via the simple check and re-run of application on fail" />
-    <MESSAGE value="Updated comment on refresh response header" />
     <MESSAGE value="Created User entity to store username, password and accountId" />
     <MESSAGE value="UserBean manages User entity and retrieve accountId by username" />
     <MESSAGE value="Added new response headers to increase security" />
@@ -681,7 +690,9 @@
     <MESSAGE value="Added 6 more endpoints to the tables from CSV report and basic unit tests on 200 response" />
     <MESSAGE value="Added response statuses on app-servlet" />
     <MESSAGE value="Forgot to include one column from table RISK_MEASURES_BENCHMARK_COMPARISON" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot to include one column from table RISK_MEASURES_BENCHMARK_COMPARISON" />
+    <MESSAGE value="Added methods for managing (CONCENTRATION_SECTOR_ALLOCATION) table. Added endpoint to" />
+    <MESSAGE value="Changed wrong type (String) to correct (double) on the endity to fix JSON" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed wrong type (String) to correct (double) on the endity to fix JSON" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
