@@ -103,8 +103,12 @@ public class CsvFileUtils {
                     saveDataToDatabase.buildKeyStats(List.of(r.split(",")));
                 } else if (r.contains("Historical Performance Benchmark Comparison") && r.contains("20230")) {
                     saveDataToDatabase.buildHistPerfBenchComparison(List.of(r.split(",")));
-                } else if (r.contains("Concentration") && r.contains("Holdings")) {
-                    saveDataToDatabase.buildConcentrationHoldings(List.of(r.split(",")));
+                } else if (r.contains("Concentration")) {
+                    if (r.contains("Holdings")) {
+                        saveDataToDatabase.buildConcentrationHoldings(List.of(r.split(",")));
+                    } else if (r.contains("Sector Allocation")) {
+                        saveDataToDatabase.buildConcentrationHoldingsSectorAlloc(List.of(r.split(",")));
+                    }
                 } else if (r.contains("Allocation by Asset Class")) {
                     saveDataToDatabase.buildAllocationByAssetClass(List.of(r.split(",")));
                 } else if (r.contains("Allocation and Performance by Region")) {

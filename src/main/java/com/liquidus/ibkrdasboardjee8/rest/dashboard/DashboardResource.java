@@ -89,9 +89,21 @@ public class DashboardResource {
     }
 
     @GET
-    @Path("/concentration-holdings")
+    @Path("/concentration-sectors")
     @Produces("application/json")
     public Response concentrationHoldingsEndpoint() {
+        List<ConcentrationSectorAllocation> concentrationSectors =
+                dashboardDao.getConcentrationSectorAllocation();
+        if (concentrationSectors.isEmpty()) {
+            logger.info("Concentration Sector Allocation table has no data");
+        }
+        return Response.ok(concentrationSectors).build();
+    }
+
+    @GET
+    @Path("/concentration-holdings")
+    @Produces("application/json")
+    public Response concentrationSectorAllocationEndpoint() {
         List<ConcentrationHoldings> concentrationHoldings =
                 dashboardDao.getConcentrationHoldings();
         if (concentrationHoldings.isEmpty()) {
