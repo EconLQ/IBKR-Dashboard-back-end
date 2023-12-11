@@ -111,7 +111,9 @@ public class PositionDao implements PositionLocal {
         logger.info("Position exists. Updating: " + position.getTicker() + " with contractId: " + position.getContractId());
         managedPosition.setPosition(position.getPosition());
         managedPosition.setUnrealizedPnL(position.getUnrealizedPnL());
-        managedPosition.setRealizedPnL(position.getRealizedPnL());
+        managedPosition.setRealizedPnL(position.getRealizedPnL() == managedPosition.getRealizedPnL()
+                ? position.getRealizedPnL()
+                : position.getRealizedPnL() + managedPosition.getRealizedPnL());
         managedPosition.setLastMarketPrice(position.getLastMarketPrice());
         entityManager.merge(managedPosition);
 

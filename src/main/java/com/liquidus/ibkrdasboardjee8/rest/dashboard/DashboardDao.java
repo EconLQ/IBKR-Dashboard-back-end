@@ -46,6 +46,11 @@ public class DashboardDao {
                 .getResultList();
     }
 
+    public List<ConcentrationSectorAllocation> getConcentrationSectorAllocation() {
+        logger.info("Reading data from ConcentrationSectorAllocation table...");
+        return entityManager.createQuery("select csa from ConcentrationSectorAllocation csa", ConcentrationSectorAllocation.class)
+                .getResultList();
+    }
 
     public List<HistoricalPerformanceBenchmarkComparison> getHistoricalPerformanceBenchmarkComparison() {
         logger.info("Reading data from HistoricalPerformanceBenchmarkComparison table...");

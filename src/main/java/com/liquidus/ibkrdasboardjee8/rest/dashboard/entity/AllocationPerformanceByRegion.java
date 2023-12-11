@@ -17,7 +17,7 @@ public class AllocationPerformanceByRegion {
     @Column(name = "REGION")
     private String region;
     @Column(name = "ENDING_NAV")
-    private String endingNav;
+    private double endingNav;
 
     @Override
     public String toString() {
@@ -35,11 +35,11 @@ public class AllocationPerformanceByRegion {
         this.region = region;
     }
 
-    public String getEndingNav() {
+    public double getEndingNav() {
         return endingNav;
     }
 
-    public void setEndingNav(String endingNav) {
+    public void setEndingNav(double endingNav) {
         this.endingNav = endingNav;
     }
 }

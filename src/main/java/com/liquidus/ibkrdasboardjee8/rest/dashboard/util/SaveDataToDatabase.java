@@ -108,6 +108,29 @@ public class SaveDataToDatabase {
         }
     }
 
+    public void buildConcentrationHoldingsSectorAlloc(List<String> holdings) {
+        if (holdings.isEmpty()) {
+            logger.warning("Failed to write Concentration (Sector Allocation) data as it's empty");
+            return;
+        }
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
+            logger.info("Saving Concentration (Sector Allocation) data... ");
+            String query = "insert into CONCENTRATION_SECTOR_ALLOCATION(sector, long_parsed_weight, short_parsed_weight) " +
+                    "value (?,?,?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+
+            statement.setString(1, holdings.get(3));
+            statement.setDouble(2, Double.parseDouble(holdings.get(5)));
+            statement.setDouble(3, Double.parseDouble(holdings.get(8)));
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            logger.warning("Failed to save data to the database: " + e.getMessage());
+            return;
+        }
+    }
+
     public void buildConcentrationHoldings(List<String> holdings) {
         if (holdings.isEmpty()) {
             logger.warning("Failed to write Concentration Holdings data as it's empty");
