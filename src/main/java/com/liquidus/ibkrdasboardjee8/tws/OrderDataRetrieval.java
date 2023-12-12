@@ -1,5 +1,6 @@
 package com.liquidus.ibkrdasboardjee8.tws;
 
+import com.liquidus.ibkrdasboardjee8.dao.CustomContractLocal;
 import com.liquidus.ibkrdasboardjee8.dao.PositionLocal;
 import com.liquidus.ibkrdasboardjee8.rest.auth.enitity.User;
 import com.liquidus.ibkrdasboardjee8.rest.auth.resources.LoginResource;
@@ -16,6 +17,8 @@ public class OrderDataRetrieval implements Serializable {
     private static final Logger logger = Logger.getLogger(OrderDataRetrieval.class.getName());
     @Inject
     PositionLocal positionBean;
+    @Inject
+    CustomContractLocal contractBean;
     @Inject
     TWSConnection twsConnection;
     private String accountCode;
@@ -73,6 +76,11 @@ public class OrderDataRetrieval implements Serializable {
             twsConnection.getWrapper()
                     .getPositions()
                     .forEach(position -> positionBean.addPosition(position));
+
+            // add contracts to CustomContracts table
+            twsConnection.getWrapper()
+                    .getContracts()
+                    .forEach(contract -> contractBean.saveContract(contract));
         } catch (InterruptedException e) {
             logger.warning("Connection was interrupted: " + e.getMessage());
         }

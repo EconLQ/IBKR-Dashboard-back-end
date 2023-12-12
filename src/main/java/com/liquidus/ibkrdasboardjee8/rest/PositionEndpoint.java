@@ -3,6 +3,7 @@ package com.liquidus.ibkrdasboardjee8.rest;
 
 import com.liquidus.ibkrdasboardjee8.dao.PositionLocal;
 import com.liquidus.ibkrdasboardjee8.entity.Position;
+import com.liquidus.ibkrdasboardjee8.tws.ClosePosition;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,7 +22,23 @@ import java.util.logging.Logger;
 public class PositionEndpoint {
     @Inject
     PositionLocal positionBean;
+    @Inject
+    ClosePosition closePositionBean;
     private Logger logger = Logger.getLogger(PositionEndpoint.class.getName());
+
+    @POST
+    @Path("/close")
+    @Consumes("application/json")
+    public Response closePosition(final Position position) {
+        if (position == null) {
+            logger.warning("[closePosition] Position can't be added as it's null");
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
+        logger.info("[closePosition]: " + position);
+        closePositionBean.closePosition(position);
+
+        return Response.ok().build();
+    }
 
     @Transactional
     @POST

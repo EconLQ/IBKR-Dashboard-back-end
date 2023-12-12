@@ -2,6 +2,7 @@ package com.liquidus.ibkrdasboardjee8.tws;
 
 
 import com.ib.client.*;
+import com.liquidus.ibkrdasboardjee8.entity.CustomContract;
 import com.liquidus.ibkrdasboardjee8.entity.Position;
 
 import java.io.Serializable;
@@ -22,6 +23,7 @@ public class EWrapperImpl implements EWrapper, Serializable {
     protected int currentOrderId = -1;
     Logger logger = Logger.getLogger(EWrapperImpl.class.getName());
     private List<Position> positions = new ArrayList<>();
+    private List<CustomContract> contracts = new ArrayList<>();
     // ![portfolio] PnL
     private double portfolioUnrealizedPnL;
     private double portfolioRealizedPnL;
@@ -34,6 +36,10 @@ public class EWrapperImpl implements EWrapper, Serializable {
         readerSignal = new EJavaSignal();
         clientSocket = new EClientSocket(this, readerSignal);
         currentOrderId++;
+    }
+
+    public List<CustomContract> getContracts() {
+        return contracts;
     }
 
     public double getPortfolioNetLiquidation() {
@@ -185,6 +191,8 @@ public class EWrapperImpl implements EWrapper, Serializable {
 
 //         save positions to the list of EwrapperImpl instance
         positions.add(newPosition);
+        // save contracts
+        contracts.add(new CustomContract(contract.conid(), contract.symbol(), contract.secType().toString(), contract.exchange(), contract.currency()));
     }
 
 
