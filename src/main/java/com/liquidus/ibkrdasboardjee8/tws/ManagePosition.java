@@ -17,15 +17,50 @@ import java.util.logging.Logger;
  */
 @Named
 @RequestScoped
-public class ClosePosition {
-    private static final Logger logger = Logger.getLogger(ClosePosition.class.getName());
+public class ManagePosition {
+    private static final Logger logger = Logger.getLogger(ManagePosition.class.getName());
     @Inject
     TWSConnection twsConnection;
 
     @Inject
     CustomContractLocal contractDao;
 
-    public ClosePosition() {
+    public ManagePosition() {
+    }
+
+
+    public void addToPosition(Position position) {
+        // tries to connect to another instance of TWS connection
+        checkConnectionToTws();
+        // creates order
+        Order order = new Order();
+
+        // negative position (position size less than 0) is short, positive is long
+        // close short position - buy contracts, close long position - sell contracts
+        order.action(position.getPosition() > 0 ? "BUY" : "SELL");
+        order.orderType("MKT");
+        order.totalQuantity(Decimal.get(position.getPosition()));
+
+        // get contract by position's contractId
+        CustomContract customContract = contractDao.findContractByPositionId(position.getContractId());
+
+        Contract contract = new Contract();
+        // set values to build IB's Contract object
+        contract.symbol(customContract.getSymbol());
+        contract.secType(customContract.getSecType());
+        contract.currency(customContract.getCurrency());
+        contract.exchange(customContract.getExchange() == null
+                ? "SMART"
+                : customContract.getExchange());
+
+        int orderId = twsConnection.getWrapper().currentOrderId;
+
+        logger.info("Added [" + position.getPosition() + "] contracts to [" + position.getTicker() + "] positions");
+        // place order
+        twsConnection.getClientSocket().placeOrder(orderId, contract, order);
+
+        // disconnect after placing order
+        twsConnection.getClientSocket().eDisconnect();
     }
 
     /**
@@ -36,13 +71,7 @@ public class ClosePosition {
      */
     public void closePosition(Position position) {
         // tries to connect to another instance of TWS connection
-        try {
-            twsConnection.run();
-        } catch (InterruptedException e) {
-            logger.warning("Failed to connect to IB API..." + e.getMessage());
-        }
-
-
+        checkConnectionToTws();
         // creates order
         Order order = new Order();
 
@@ -66,10 +95,22 @@ public class ClosePosition {
 
         int orderId = twsConnection.getWrapper().currentOrderId;
 
+        logger.info("Closed [" + position.getPosition() + "] contracts of [" + position.getTicker() + "]");
         // place order
         twsConnection.getClientSocket().placeOrder(orderId, contract, order);
 
         // disconnect after placing order
         twsConnection.getClientSocket().eDisconnect();
+    }
+
+    private void checkConnectionToTws() {
+        // tries to connect to another instance of TWS connection
+        if (!twsConnection.isConnected()) {
+            try {
+                twsConnection.run();
+            } catch (InterruptedException e) {
+                logger.warning("Failed to connect to IB API..." + e.getMessage());
+            }
+        }
     }
 }
