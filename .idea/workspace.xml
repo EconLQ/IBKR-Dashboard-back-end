@@ -9,17 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Sticked to the save of a daily realizedPnL">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/CustomContractDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/dao/CustomContractLocal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/entity/CustomContract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/ClosePosition.java" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Class that's responsible for closing position fully or partially via closePosition method">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/utils/DropDashboardTablesData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/PositionEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/EWrapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/OrderDataRetrieval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/ClosePosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/ManagePosition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +51,13 @@
     &quot;assignee&quot;: &quot;EconLQ&quot;
   }
 }</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -65,6 +66,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -80,38 +84,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "close-position",
-    "grid.search.filter.rows": "true",
-    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37176725",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;close-position&quot;,
+    &quot;grid.search.filter.rows&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.liquidus.ibkrdasboardjee8.entity" />
@@ -362,7 +366,9 @@
       <workItem from="1702148776440" duration="629000" />
       <workItem from="1702303456780" duration="5999000" />
       <workItem from="1702310483664" duration="3667000" />
-      <workItem from="1702406220489" duration="9755000" />
+      <workItem from="1702406220489" duration="11654000" />
+      <workItem from="1702418673283" duration="23000" />
+      <workItem from="1702484876059" duration="4129000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -676,7 +682,47 @@
       <option name="project" value="LOCAL" />
       <updated>1702318752200</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Created CustomContract table to track specific data about IB's Contract object.">
+      <option name="closed" value="true" />
+      <created>1702416408778</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1702416408778</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Created DAO layer to saveContracts, check existing ones and find contracts by position Id">
+      <option name="closed" value="true" />
+      <created>1702416463033</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1702416463033</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Added list property customContracts to add Contract's values">
+      <option name="closed" value="true" />
+      <created>1702416536213</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1702416536213</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Add new contracts during positions update">
+      <option name="closed" value="true" />
+      <created>1702416598482</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1702416598482</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Class that's responsible for closing position fully or partially via closePosition method">
+      <option name="closed" value="true" />
+      <created>1702416637843</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1702416637843</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,11 +740,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UserBean manages User entity and retrieve accountId by username" />
-    <MESSAGE value="Added new response headers to increase security" />
-    <MESSAGE value="Created CustomIdentityStore to validate user with the password matched in db and return CallerPrincipal" />
-    <MESSAGE value="Annotated with BasicAuthenticationMechanismDefinition to implement the HTTP basic access authentication protocol" />
-    <MESSAGE value="New endpoint for login with POST request that consumes User in JSON format and validate it via CustomIdentityStore" />
     <MESSAGE value="Added method to disconnect from IB Client on logout request" />
     <MESSAGE value="Added method to add User to the table and boolean check method to find user by username" />
     <MESSAGE value="Added basic functionality for login, logout and sign-up resources" />
@@ -719,7 +760,12 @@
     <MESSAGE value="Added methods for managing (CONCENTRATION_SECTOR_ALLOCATION) table. Added endpoint to" />
     <MESSAGE value="Changed wrong type (String) to correct (double) on the endity to fix JSON" />
     <MESSAGE value="Sticked to the save of a daily realizedPnL" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sticked to the save of a daily realizedPnL" />
+    <MESSAGE value="Created CustomContract table to track specific data about IB's Contract object." />
+    <MESSAGE value="Created DAO layer to saveContracts, check existing ones and find contracts by position Id" />
+    <MESSAGE value="Added list property customContracts to add Contract's values" />
+    <MESSAGE value="Add new contracts during positions update" />
+    <MESSAGE value="Class that's responsible for closing position fully or partially via closePosition method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Class that's responsible for closing position fully or partially via closePosition method" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
