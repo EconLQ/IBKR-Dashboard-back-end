@@ -97,7 +97,7 @@ public class DashboardResource {
     @GET
     @Path("/concentration-sectors")
     @Produces("application/json")
-    public Response concentrationHoldingsEndpoint() {
+    public Response concentrationSectorAllocationEndpoint() {
         List<ConcentrationSectorAllocation> concentrationSectors =
                 dashboardDao.getConcentrationSectorAllocation();
         if (concentrationSectors.isEmpty()) {
@@ -110,7 +110,7 @@ public class DashboardResource {
     @GET
     @Path("/concentration-holdings")
     @Produces("application/json")
-    public Response concentrationSectorAllocationEndpoint() {
+    public Response concentrationHoldingsEndpoint() {
         List<ConcentrationHoldings> concentrationHoldings =
                 dashboardDao.getConcentrationHoldings();
         if (concentrationHoldings.isEmpty()) {
