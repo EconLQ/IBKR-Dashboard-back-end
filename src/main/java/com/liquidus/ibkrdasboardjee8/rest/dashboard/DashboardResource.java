@@ -24,6 +24,7 @@ public class DashboardResource {
         List<KeyStatistics> keyStatistics = dashboardDao.getKeyStatistics();
         if (keyStatistics.isEmpty()) {
             logger.info("Key Statistics table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(keyStatistics).build();
     }
@@ -36,6 +37,7 @@ public class DashboardResource {
                 dashboardDao.getRiskMeasuresBenchmarkComparison();
         if (riskMeasureBenchComp.isEmpty()) {
             logger.info("Risk Measures Benchmark Comparison table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(riskMeasureBenchComp).build();
     }
@@ -48,6 +50,7 @@ public class DashboardResource {
                 dashboardDao.getAllocationByAssetClass();
         if (allocationByAssetClass.isEmpty()) {
             logger.info("Allocation By Asset Class table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(allocationByAssetClass).build();
     }
@@ -60,6 +63,7 @@ public class DashboardResource {
                 dashboardDao.getAllocationPerformanceByRegion();
         if (allocationPerformanceByRegion.isEmpty()) {
             logger.info("Allocation Performance Region table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(allocationPerformanceByRegion).build();
     }
@@ -72,6 +76,7 @@ public class DashboardResource {
                 dashboardDao.getAllocationPerformanceSector();
         if (allocationPerformanceSector.isEmpty()) {
             logger.info("Allocation Performance Sector table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(allocationPerformanceSector).build();
     }
@@ -84,6 +89,7 @@ public class DashboardResource {
                 dashboardDao.getHistoricalPerformanceBenchmarkComparison();
         if (comparison.isEmpty()) {
             logger.info("Historical Performance Benchmark Comparison has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(comparison).build();
     }
@@ -96,6 +102,7 @@ public class DashboardResource {
                 dashboardDao.getConcentrationSectorAllocation();
         if (concentrationSectors.isEmpty()) {
             logger.info("Concentration Sector Allocation table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(concentrationSectors).build();
     }
@@ -108,6 +115,7 @@ public class DashboardResource {
                 dashboardDao.getConcentrationHoldings();
         if (concentrationHoldings.isEmpty()) {
             logger.info("Concentration Holdings table has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(concentrationHoldings).build();
     }
@@ -120,6 +128,7 @@ public class DashboardResource {
                 dashboardDao.getTimePeriodBenchmarkComparison();
         if (timePeriodBenchmarkComparison.isEmpty()) {
             logger.info("Time Period Benchmark Comparison has no data");
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
         return Response.ok(timePeriodBenchmarkComparison).build();
     }
