@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="return 204 on empty lists">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="enabling docker support for the app">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/utils/DropDashboardTablesData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResourceNoContentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/liquidus/ibkrdasboardjee8/rest/dashboard/DashboardResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="close-position" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,44 +83,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor": "Run",
-    "JUnit.DashboardResourceNoContentTest.executor": "Run",
-    "JUnit.DashboardResourceTest.executor": "Run",
-    "JUnit.DashboardResourceTest.keyStatisticsEndpoint.executor": "Run",
-    "Maven.IBKR-Dashboard-JEE8 [clean].executor": "Run",
-    "Maven.IBKR-Dashboard-JEE8 [compile].executor": "Run",
-    "Maven.IBKR-Dashboard-JEE8 [package].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "grid.search.filter.rows": "true",
-    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37176725",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DashboardResourceNoContentTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DashboardResourceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DashboardResourceTest.keyStatisticsEndpoint.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IBKR-Dashboard-JEE8 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IBKR-Dashboard-JEE8 [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IBKR-Dashboard-JEE8 [package].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;docker&quot;,
+    &quot;grid.search.filter.rows&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.liquidus.ibkrdasboardjee8.entity" />
@@ -145,9 +144,8 @@
       <recent name="com.liquidus.ibkrdasboardjee8.tws" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DashboardResourceNoContentTest">
-    <configuration name="JBoss/WildFly 16.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 16.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/IBKR-Dashboard-JEE8-1.0-SNAPSHOT" />
+  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final">
+    <configuration name="JBoss/WildFly 16.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 16.0.0.Final" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
@@ -162,11 +160,11 @@
         <option name="DOMAIN" value="false" />
         <option name="SERVER_GROUP" value="main-server-group" />
         <option name="USERNAME" value="adminLocal" />
-        <option name="CREDENTIAL_ALIAS" value="a7c9958c-126e-4ee6-8d8d-9185be80608b" />
+        <option name="CREDENTIAL_ALIAS" value="cabce5a1-66e6-440c-90af-a77966afb9b4" />
       </server-settings>
       <predefined_log_file enabled="true" id="JBoss" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51711" />
+        <option name="DEBUG_PORT" value="57657" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -230,6 +228,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard" />
       <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.DashboardResourceNoContentTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -383,7 +382,14 @@
       <workItem from="1702484876059" duration="5018000" />
       <workItem from="1702545167883" duration="455000" />
       <workItem from="1702896391040" duration="525000" />
-      <workItem from="1702897148653" duration="2329000" />
+      <workItem from="1702897148653" duration="2663000" />
+      <workItem from="1703182209990" duration="8942000" />
+      <workItem from="1703192031346" duration="1750000" />
+      <workItem from="1703237939112" duration="14858000" />
+      <workItem from="1703407832624" duration="129000" />
+      <workItem from="1703407980455" duration="8459000" />
+      <workItem from="1703498329878" duration="68000" />
+      <workItem from="1703505606656" duration="12720000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -753,7 +759,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702896691744</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Endpoint tests on empty lists and response content + rename of concentration holdings table method">
+      <option name="closed" value="true" />
+      <created>1702899583899</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1702899583899</updated>
+    </task>
+    <task id="LOCAL-00048" summary="enabling docker support for the app">
+      <option name="closed" value="true" />
+      <created>1703192957829</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1703192957829</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,8 +793,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added basic functionality for login, logout and sign-up resources" />
-    <MESSAGE value="Corrected comments. Still thinking whether I need this servlet for app instaniation" />
     <MESSAGE value="Corrected comments. Still thinking whether I need this servlet for running OrderDataRetrieval app" />
     <MESSAGE value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
     <MESSAGE value="Null checks on username and password and removed redundant properties" />
@@ -796,7 +816,9 @@
     <MESSAGE value="Class that's responsible for closing position fully or partially via closePosition method" />
     <MESSAGE value="Renamed ClosePosition class to ManagePosition and added addToPosition method which opens a new market order in the specified quantity" />
     <MESSAGE value="return 204 on empty lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="return 204 on empty lists" />
+    <MESSAGE value="Endpoint tests on empty lists and response content + rename of concentration holdings table method" />
+    <MESSAGE value="enabling docker support for the app" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabling docker support for the app" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  wildfly:
+    image: wildfly16
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+    networks:
+      - my-network
+    command: [ "sh", "-c", "sleep 30; /usr/local/bin/dockerize -wait tcp://mysql:3306 -timeout 1m /opt/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0" ]
+
+  mysql:
+    image: mysql
+    env_file:
+      - env.env
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
