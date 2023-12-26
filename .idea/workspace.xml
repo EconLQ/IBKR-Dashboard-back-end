@@ -9,14 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready">
-      <change afterPath="$PROJECT_DIR$/demo/demo_2023-12-14.mp4" afterDir="false" />
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Updated README.md with Docker setup">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/utils/DropDashboardTablesData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_2023-12-14.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +129,7 @@
       <recent name="com.liquidus.ibkrdasboardjee8.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo" />
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -395,15 +393,7 @@
       <workItem from="1703407980455" duration="8459000" />
       <workItem from="1703498329878" duration="68000" />
       <workItem from="1703505606656" duration="13863000" />
-      <workItem from="1703584087450" duration="11180000" />
-    </task>
-    <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
-      <option name="closed" value="true" />
-      <created>1699132105704</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1699132105704</updated>
+      <workItem from="1703584087450" duration="11928000" />
     </task>
     <task id="LOCAL-00002" summary="Responsible for getting stock's current market price via RapidAPI">
       <option name="closed" value="true" />
@@ -789,7 +779,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703537703034</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Updated README.md with Docker setup">
+      <option name="closed" value="true" />
+      <created>1703600347638</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1703600347639</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -807,7 +805,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
     <MESSAGE value="Null checks on username and password and removed redundant properties" />
     <MESSAGE value="Added new resource for receiving files from the client and save them to the reports folder in user.home" />
     <MESSAGE value="Created CsvUtils class that saving file to user.home and performs parsing of the uploaded report" />
@@ -832,7 +829,8 @@
     <MESSAGE value="Endpoint tests on empty lists and response content + rename of concentration holdings table method" />
     <MESSAGE value="enabling docker support for the app" />
     <MESSAGE value="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready" />
+    <MESSAGE value="Updated README.md with Docker setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md with Docker setup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
