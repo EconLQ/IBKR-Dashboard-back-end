@@ -2,7 +2,7 @@
 
 ## Back-end implementation of the project
 
-[![Demo](demo/demo_2023-12-14.mp4)]
+![Demo](demo/demo_2023-12-14.gif)
 ***
 ## Tech specs:
 - Wildfly v.16.0
