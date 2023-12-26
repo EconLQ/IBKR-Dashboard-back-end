@@ -9,10 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="enabling docker support for the app">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready">
+      <change afterPath="$PROJECT_DIR$/demo/demo_2023-12-14.mp4" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/utils/DropDashboardTablesData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,45 +88,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DashboardResourceNoContentTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DashboardResourceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DashboardResourceTest.keyStatisticsEndpoint.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.IBKR-Dashboard-JEE8 [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.IBKR-Dashboard-JEE8 [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.IBKR-Dashboard-JEE8 [package].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;docker&quot;,
-    &quot;grid.search.filter.rows&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/src/main/webapp/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor": "Run",
+    "JUnit.DashboardResourceNoContentTest.executor": "Run",
+    "JUnit.DashboardResourceTest.executor": "Run",
+    "JUnit.DashboardResourceTest.keyStatisticsEndpoint.executor": "Run",
+    "Maven.IBKR-Dashboard-JEE8 [clean].executor": "Run",
+    "Maven.IBKR-Dashboard-JEE8 [compile].executor": "Run",
+    "Maven.IBKR-Dashboard-JEE8 [package].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "docker",
+    "grid.search.filter.rows": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37176725",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.liquidus.ibkrdasboardjee8.entity" />
@@ -389,7 +394,8 @@
       <workItem from="1703407832624" duration="129000" />
       <workItem from="1703407980455" duration="8459000" />
       <workItem from="1703498329878" duration="68000" />
-      <workItem from="1703505606656" duration="12720000" />
+      <workItem from="1703505606656" duration="13863000" />
+      <workItem from="1703584087450" duration="11180000" />
     </task>
     <task id="LOCAL-00001" summary="Maven configuration (specified maven-compiler-plugin and set to 11)">
       <option name="closed" value="true" />
@@ -775,7 +781,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703192957829</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready">
+      <option name="closed" value="true" />
+      <created>1703537703034</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1703537703034</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -793,7 +807,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Corrected comments. Still thinking whether I need this servlet for running OrderDataRetrieval app" />
     <MESSAGE value="Removed EJB annotations to avoid obfuscation during EJB container launch" />
     <MESSAGE value="Null checks on username and password and removed redundant properties" />
     <MESSAGE value="Added new resource for receiving files from the client and save them to the reports folder in user.home" />
@@ -818,7 +831,8 @@
     <MESSAGE value="return 204 on empty lists" />
     <MESSAGE value="Endpoint tests on empty lists and response content + rename of concentration holdings table method" />
     <MESSAGE value="enabling docker support for the app" />
-    <option name="LAST_COMMIT_MESSAGE" value="enabling docker support for the app" />
+    <MESSAGE value="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added compose.yaml with wildfly image which depends on mysql. Modified Dockerfile by adding dockerize to delay the startup of wildfly before mysql is ready" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
