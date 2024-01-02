@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Updated README.md with Docker setup">
+    <list default="true" id="3cd27c0e-83a6-420f-8dba-d77c9aed998e" name="Changes" comment="Updated README.md with demo">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/utils/DropDashboardTablesData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_2023-12-14.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/tws/TWSConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/liquidus/ibkrdasboardjee8/servlet/AppServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="docker" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,45 +85,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor": "Run",
-    "JUnit.DashboardResourceNoContentTest.executor": "Run",
-    "JUnit.DashboardResourceTest.executor": "Run",
-    "JUnit.DashboardResourceTest.keyStatisticsEndpoint.executor": "Run",
-    "Maven.IBKR-Dashboard-JEE8 [clean].executor": "Run",
-    "Maven.IBKR-Dashboard-JEE8 [compile].executor": "Run",
-    "Maven.IBKR-Dashboard-JEE8 [package].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "docker",
-    "grid.search.filter.rows": "true",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/demo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37176725",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JBoss/WildFly Server.JBoss/WildFly 16.0.0.Final.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DashboardResourceNoContentTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DashboardResourceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DashboardResourceTest.keyStatisticsEndpoint.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IBKR-Dashboard-JEE8 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IBKR-Dashboard-JEE8 [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IBKR-Dashboard-JEE8 [package].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;grid.search.filter.rows&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bohdan/IdeaProjects/IBKR-Dasboard-JEE8/demo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37176725&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.liquidus.ibkrdasboardjee8.entity" />
@@ -231,7 +231,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard" />
       <option name="MAIN_CLASS_NAME" value="com.liquidus.ibkrdasboardjee8.rest.dashboard.DashboardResourceNoContentTest" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -310,11 +309,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DashboardResourceNoContentTest" />
-        <item itemvalue="JUnit.DashboardResourceTest" />
-        <item itemvalue="JUnit.DashboardResourceTest.keyStatisticsEndpoint" />
-        <item itemvalue="JUnit.PositionEndpointTest" />
         <item itemvalue="JUnit.PositionEndpointTest.testCreatePosition" />
+        <item itemvalue="JUnit.PositionEndpointTest" />
+        <item itemvalue="JUnit.DashboardResourceTest.keyStatisticsEndpoint" />
+        <item itemvalue="JUnit.DashboardResourceTest" />
+        <item itemvalue="JUnit.DashboardResourceNoContentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -394,6 +393,10 @@
       <workItem from="1703498329878" duration="68000" />
       <workItem from="1703505606656" duration="13863000" />
       <workItem from="1703584087450" duration="11928000" />
+      <workItem from="1703872173052" duration="233000" />
+      <workItem from="1704134013483" duration="611000" />
+      <workItem from="1704225923285" duration="821000" />
+      <workItem from="1704226750718" duration="6228000" />
     </task>
     <task id="LOCAL-00002" summary="Responsible for getting stock's current market price via RapidAPI">
       <option name="closed" value="true" />
